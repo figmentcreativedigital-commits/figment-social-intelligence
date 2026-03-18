@@ -258,68 +258,96 @@ export default function Dashboard() {
         {/* CONTENT */}
         {tab === "content" && (
           <>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 16 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 18 }}>
               {d.posts.map((p) => {
                 const url = mediaUrls[p.id];
                 const isEditing = editingMedia === p.id;
+                const maxViews = 938;
                 return (
-                  <div key={p.id} className="post">
-                    {p.isTop && <div className="post-top-tag">Top Post</div>}
-                    <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-                      <div className="post-emoji">{p.emoji}</div>
-                      <div>
-                        <div className="post-type">{p.type}</div>
-                        <div className="post-title">{p.title}</div>
-                      </div>
+                  <div key={p.id} className={`postcard ${p.isTop ? "postcard-top" : ""}`}>
+                    {/* Header row */}
+                    <div className="postcard-header">
+                      <div className="postcard-type-badge">{p.type}</div>
+                      {p.isTop && <div className="postcard-top-badge">★ Top Post</div>}
                     </div>
-                    <div className={`media-zone ${url ? "has-media" : ""}`}>
+                    <div className="postcard-title">{p.title}</div>
+
+                    {/* Media zone — 4:5 ratio (1080×1350), IG embeds cropped clean */}
+                    <div className={`postcard-media ${url ? "has-media" : ""}`}>
                       {!url && !isEditing && (
-                        <div className="media-placeholder" onClick={() => { setEditingMedia(p.id); setMediaInput(""); }}>
-                          <div className="media-placeholder-icon">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8B6B7A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="4" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="M21 15l-5-5L5 21" /></svg>
+                        <div className="postcard-media-empty" onClick={() => { setEditingMedia(p.id); setMediaInput(""); }}>
+                          <div className="postcard-empty-inner">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#BDCBCE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="4"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                            <span className="postcard-empty-label">Add Post Visual</span>
+                            <span className="postcard-empty-hint">Image URL, video URL, or Instagram link</span>
                           </div>
-                          <div className="media-placeholder-text">Add Image or Video</div>
-                          <div className="media-placeholder-hint">Paste a URL or Instagram embed link</div>
                         </div>
                       )}
                       {isEditing && (
-                        <div className="media-input-wrap">
-                          <input className="media-input" type="text" placeholder="Paste image URL, video URL, or Instagram post link..." value={mediaInput} onChange={(e) => setMediaInput(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") handleMediaSave(p.id); if (e.key === "Escape") { setEditingMedia(null); setMediaInput(""); } }} autoFocus />
-                          <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                            {["Image URL", "Video URL", "Instagram Link"].map((t) => (
-                              <div key={t} style={{ fontSize: 10, color: "#9B8E94", padding: "3px 8px", background: "#F1E4DC", borderRadius: 6 }}>{t}</div>
-                            ))}
-                          </div>
-                          <div className="media-btn-row">
+                        <div className="postcard-media-input">
+                          <input className="media-input" type="text" placeholder="Paste image, video, or Instagram URL..." value={mediaInput} onChange={(e) => setMediaInput(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") handleMediaSave(p.id); if (e.key === "Escape") { setEditingMedia(null); setMediaInput(""); } }} autoFocus />
+                          <div style={{ display: "flex", gap: 6 }}>
                             <button className="media-btn secondary" onClick={() => { setEditingMedia(null); setMediaInput(""); }}>Cancel</button>
-                            <button className="media-btn primary" onClick={() => handleMediaSave(p.id)}>Add Media</button>
+                            <button className="media-btn primary" onClick={() => handleMediaSave(p.id)}>Save</button>
                           </div>
                         </div>
                       )}
                       {url && !isEditing && (
-                        <div className="media-preview">
-                          {isIgEmbed(url) ? <iframe src={url.replace(/\/?(\?.*)?$/, "/embed")} title={`Instagram embed for ${p.title}`} allowFullScreen scrolling="no" /> : isVideo(url) ? <video controls playsInline preload="metadata"><source src={url} /></video> : <img src={url} alt={p.title} />}
-                          <div className="media-overlay">
-                            <button className="media-overlay-btn" onClick={() => { setEditingMedia(p.id); setMediaInput(url); }}>✎</button>
-                            <button className="media-overlay-btn" onClick={() => handleMediaRemove(p.id)}>✕</button>
+                        <div className="postcard-media-filled">
+                          {isIgEmbed(url) ? (
+                            <div className="postcard-ig-crop">
+                              <iframe
+                                src={url.replace(/\/?(\?.*)?$/, "/embed")}
+                                title={p.title}
+                                scrolling="no"
+                                allowFullScreen
+                              />
+                            </div>
+                          ) : isVideo(url) ? (
+                            <video controls playsInline preload="metadata" poster=""><source src={url} /></video>
+                          ) : (
+                            <img src={url} alt={p.title} />
+                          )}
+                          <div className="postcard-media-actions">
+                            <button onClick={() => { setEditingMedia(p.id); setMediaInput(url); }}>✎</button>
+                            <button onClick={() => handleMediaRemove(p.id)}>✕</button>
                           </div>
                         </div>
                       )}
                     </div>
-                    <div className="post-metrics">
-                      {[{ l: "Views", v: p.views }, { l: "Reach", v: p.reach }, { l: "Likes", v: p.likes }].map((m) => (
-                        <div key={m.l} className="post-metric"><div className="post-metric-val">{m.v.toLocaleString()}</div><div className="post-metric-lab">{m.l}</div></div>
-                      ))}
+
+                    {/* Primary metrics — Views & Reach, large and scannable */}
+                    <div className="postcard-primary">
+                      <div className="postcard-hero-metric">
+                        <span className="postcard-hero-val">{p.views.toLocaleString()}</span>
+                        <span className="postcard-hero-label">Views</span>
+                      </div>
+                      <div className="postcard-hero-divider" />
+                      <div className="postcard-hero-metric">
+                        <span className="postcard-hero-val">{p.reach.toLocaleString()}</span>
+                        <span className="postcard-hero-label">Reach</span>
+                      </div>
                     </div>
-                    <div style={{ display: "flex", gap: 8, marginTop: 12 }}>
-                      {[{ l: "Comments", v: p.comments }, { l: "Saves", v: p.saves }, { l: "Shares", v: p.shares }].map((m) => (
-                        <div key={m.l} style={{ flex: 1, textAlign: "center" as const, padding: "7px 0", background: "#F1E4DC", borderRadius: 8 }}>
-                          <span style={{ fontSize: 13, fontWeight: 700, color: "#3D2A33" }}>{m.v}</span>
-                          <span style={{ fontSize: 10, color: "#9B8E94", marginLeft: 5 }}>{m.l}</span>
+
+                    {/* Performance bar — subtle relative indicator */}
+                    <div className="postcard-perf-bar">
+                      <div className="postcard-perf-fill" style={{ width: `${(p.views / maxViews) * 100}%` }} />
+                    </div>
+
+                    {/* Secondary metrics — inline, compact */}
+                    <div className="postcard-secondary">
+                      {[
+                        { icon: "♡", val: p.likes, label: "Likes" },
+                        { icon: "↗", val: p.shares, label: "Shares" },
+                        { icon: "💬", val: p.comments, label: "Comments" },
+                        { icon: "⊕", val: p.saves, label: "Saves" },
+                      ].map((m) => (
+                        <div key={m.label} className={`postcard-sec-item ${m.val === 0 ? "zero" : ""}`}>
+                          <span className="postcard-sec-val">{m.val}</span>
+                          <span className="postcard-sec-label">{m.label}</span>
                         </div>
                       ))}
                     </div>
-                    <div className="post-bar-track"><div className="post-bar-fill" style={{ width: `${(p.views / 938) * 100}%` }} /></div>
                   </div>
                 );
               })}
