@@ -12,7 +12,7 @@ const FALLBACK_DATA = {
     engagements: { value: 0, label: "Engagements" },
     watchTime: { value: "–", label: "Watch Time" },
   },
-  posts: [],
+  posts: [] as any[],
   contentMix: { posts: 0, reels: 0, stories: 0 },
   audience: {
     gender: { male: 50, female: 50 },
