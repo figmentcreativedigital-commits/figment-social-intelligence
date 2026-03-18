@@ -2,14 +2,22 @@ import { NextResponse } from "next/server";
 import { google } from "googleapis";
 
 async function getSheets() {
-  const auth = new google.auth.GoogleAuth({
-    credentials: {
-      client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
-    },
+  // Decode the base64-encoded service account JSON
+  const credsJson = Buffer.from(
+    process.env.GOOGLE_CREDENTIALS_BASE64 || "",
+    "base64"
+  ).toString("utf-8");
+  const creds = JSON.parse(credsJson);
+
+  // Use JWT client directly — most reliable on Vercel
+  const { JWT } = google.auth;
+  const client = new JWT({
+    email: creds.client_email,
+    key: creds.private_key.split(String.raw`\n`).join("\n"),
     scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
   });
-  return google.sheets({ version: "v4", auth });
+
+  return google.sheets({ version: "v4", auth: client });
 }
 
 async function fetchRange(sheets: any, range: string) {
