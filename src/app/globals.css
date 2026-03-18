@@ -281,7 +281,7 @@ body {
 .postcard-media.has-media { border-color: transparent; }
 
 .postcard-media-empty {
-  aspect-ratio: 4/5;
+  aspect-ratio: 3/4;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer; transition: background 0.2s;
 }
@@ -297,7 +297,7 @@ body {
 
 .postcard-media-filled {
   position: relative; width: 100%;
-  aspect-ratio: 4/5; overflow: hidden;
+  aspect-ratio: 3/4; overflow: hidden;
   background: #0a0809;
 }
 .postcard-media-filled > img {
