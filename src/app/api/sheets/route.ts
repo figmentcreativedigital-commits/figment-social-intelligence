@@ -2,18 +2,21 @@ import { NextResponse } from "next/server";
 import { google } from "googleapis";
 
 async function getSheets() {
-  // Decode the base64-encoded service account JSON
-  const credsJson = Buffer.from(
-    process.env.GOOGLE_CREDENTIALS_BASE64 || "",
-    "base64"
-  ).toString("utf-8");
-  const creds = JSON.parse(credsJson);
+  const email = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL || "";
+  
+  // Handle private key — Vercel may store it with literal \n or real newlines
+  let key = process.env.GOOGLE_PRIVATE_KEY || "";
+  // Remove surrounding quotes if present
+  if (key.startsWith('"') && key.endsWith('"')) {
+    key = key.slice(1, -1);
+  }
+  // Replace literal \n with real newlines
+  key = key.replace(/\\n/g, "\n");
 
-  // Use JWT client directly — most reliable on Vercel
   const { JWT } = google.auth;
   const client = new JWT({
-    email: creds.client_email,
-    key: creds.private_key.split(String.raw`\n`).join("\n"),
+    email,
+    key,
     scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
   });
 
