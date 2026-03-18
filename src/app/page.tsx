@@ -397,21 +397,6 @@ export default function Dashboard() {
         {/* INSIGHTS */}
         {tab === "insights" && (
           <>
-            <div className="card" style={{ display: "flex", alignItems: "center", gap: 32, flexWrap: "wrap" }}>
-              <div className="score-wrap">
-                <svg width={110} height={110} viewBox="0 0 110 110">
-                  <circle cx="55" cy="55" r="46" fill="none" stroke="#F1E4DC" strokeWidth="10" />
-                  <circle cx="55" cy="55" r="46" fill="none" stroke="url(#scoreGrad)" strokeWidth="10" strokeDasharray={`${0.62 * 2 * Math.PI * 46} ${2 * Math.PI * 46}`} strokeLinecap="round" transform="rotate(-90 55 55)" style={{ transition: "stroke-dasharray 1.5s ease" }} />
-                  <defs><linearGradient id="scoreGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#715262" /><stop offset="100%" stopColor="#88A3AE" /></linearGradient></defs>
-                </svg>
-                <div className="score-num">62</div>
-              </div>
-              <div style={{ flex: 1, minWidth: 200 }}>
-                <div className="card-hd" style={{ marginBottom: 6 }}>Weekly Performance Score</div>
-                <div className="big-num" style={{ fontSize: 24 }}>Room to Grow</div>
-                <div style={{ fontSize: 13, lineHeight: 1.7 }}>Strong discovery metrics offset by low engagement depth. Saves and shares are the key unlock for algorithmic amplification. Focus on creating content worth bookmarking.</div>
-              </div>
-            </div>
             <div className="cols2">
               <div>
                 <div className="section-label">Key Insights</div>
