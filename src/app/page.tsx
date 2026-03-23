@@ -209,7 +209,6 @@ export default function Dashboard() {
               {[
                 { ...d.kpi.followers, delay: 0 },
                 { ...d.kpi.reach, delay: 80 },
-                { ...d.kpi.views, delay: 160 },
                 { ...d.kpi.engagementRate, delay: 240 },
                 { ...d.kpi.engagements, delay: 320 }
               ].map((k, i) => (
