@@ -212,7 +212,7 @@ export default function Dashboard() {
                 { ...d.kpi.views, delay: 160 },
                 { ...d.kpi.engagementRate, delay: 240 },
                 { ...d.kpi.engagements, delay: 320 },
-                { ...d.kpi.watchTime, delay: 400 },
+                ,
               ].map((k, i) => (
                 <div key={i} className="kpi" style={{ animationDelay: `${k.delay}ms` }}>
                   <div className="kpi-label">{k.label}</div>
