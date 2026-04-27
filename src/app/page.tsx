@@ -3,33 +3,30 @@ import { useState, useEffect } from "react";
 
 // Fallback data — used while loading or if Sheets API fails
 const FALLBACK_DATA = {
-  client: { name: "EEC", fullName: "Edgard El Chaar, DDS, PC", period: "Mar 30 – Apr 13, 2026" },
+  client: { name: "EEC", fullName: "Edgard El Chaar, DDS, PC", period: "Apr 13 – Apr 27, 2026" },
   kpi: {
-    followers: { value: 3135, change: 4, label: "Followers" },
-    reach: { value: 2776, label: "Reach" },
-    views: { value: 10829, label: "Total Views" },
-    engagementRate: { value: 17.6, label: "Engagement Rate", suffix: "%" },
-    engagements: { value: 489, label: "Engagements" },
-    watchTime: { value: "8h 6m", label: "Watch Time" },
+    followers: { value: 3138, change: 0, label: "Followers" },
+    reach: { value: 1578, label: "Reach" },
+    views: { value: 5573, label: "Total Views" },
+    engagementRate: { value: 9.8, label: "Engagement Rate", suffix: "%" },
+    engagements: { value: 155, label: "Engagements" },
+    watchTime: { value: "—", label: "Watch Time" },
   },
   posts: [
-    { id: 1, title: "Dr. Castillo – Educate & Remove Fear", type: "Reel", views: 2916, reach: 1693, likes: 130, comments: 6, saves: 2, shares: 95, isTop: true, igPostUrl: "https://www.instagram.com/reel/DWpPFRDgeGo/" },
-    { id: 2, title: "Treatment vs. Care – DDS PC", type: "Reel", views: 1141, reach: 746, likes: 23, comments: 0, saves: 0, shares: 4, isTop: false, igPostUrl: "https://www.instagram.com/reel/DW9oP_eSL4S/" },
-    { id: 3, title: "DDS PC – Precision & Experience", type: "Carousel", views: 486, reach: 150, likes: 11, comments: 0, saves: 0, shares: 0, isTop: false, igPostUrl: "https://www.instagram.com/p/DWkA4b4GeTh/" },
-    { id: 4, title: "Dr. Dinoi – No Two Patients", type: "Reel", views: 485, reach: 321, likes: 8, comments: 0, saves: 0, shares: 0, isTop: false, igPostUrl: "https://www.instagram.com/reel/DWrVg8fBRLM/" },
-    { id: 5, title: "National Dental Hygienist Week", type: "Reel", views: 458, reach: 288, likes: 14, comments: 0, saves: 0, shares: 1, isTop: false, igPostUrl: "https://www.instagram.com/reel/DW9tLEwgaPM/" },
-    { id: 6, title: "Oral Cancer Awareness Month", type: "Reel", views: 371, reach: 216, likes: 4, comments: 0, saves: 1, shares: 0, isTop: false, igPostUrl: "https://www.instagram.com/reel/DW2C04hAW_h/" },
-    { id: 7, title: "Why Patients Choose Us", type: "Image", views: 271, reach: 155, likes: 8, comments: 0, saves: 0, shares: 0, isTop: false, igPostUrl: "https://www.instagram.com/p/DW4NdueFE1-/" },
+    { id: 1, title: "More Than a Job – New Podcast Episode", type: "Reel", views: 1876, reach: 990, likes: 44, comments: 0, saves: 2, shares: 7, isTop: true, igPostUrl: "https://www.instagram.com/reel/DXaDxPWgRlN/" },
+    { id: 2, title: "Not Every Treatment Is Right", type: "Reel", views: 1727, reach: 1026, likes: 64, comments: 2, saves: 4, shares: 8, isTop: false, igPostUrl: "https://www.instagram.com/reel/DXRzK8uSR1S/" },
+    { id: 3, title: "Building Patient Trust – Dr. Bender", type: "Reel", views: 1955, reach: 909, likes: 59, comments: 4, saves: 1, shares: 1, isTop: false, igPostUrl: "https://www.instagram.com/reel/DXe8R0VBhuA/" },
+    { id: 4, title: "The Difference You Can Feel", type: "Reel", views: 583, reach: 383, likes: 12, comments: 0, saves: 0, shares: 1, isTop: false, igPostUrl: "https://www.instagram.com/reel/DXP1MbWAcJ7/" },
   ] as any[],
-  contentMix: { posts: 23, reels: 60, stories: 18 },
+  contentMix: { posts: 8, reels: 68, stories: 23 },
   audience: {
     gender: { male: 53, female: 47 },
     age: [
-      { range: "18–24", pct: 2 }, { range: "25–34", pct: 22 }, { range: "35–44", pct: 36 },
+      { range: "18–24", pct: 2 }, { range: "25–34", pct: 22 }, { range: "35–44", pct: 37 },
       { range: "45–54", pct: 21 }, { range: "55–64", pct: 13 }, { range: "65+", pct: 6 },
     ],
   },
-  viewerSplit: { followers: 45, nonFollowers: 55 },
+  viewerSplit: { followers: 39, nonFollowers: 61 },
 };
 
 type ReportData = typeof FALLBACK_DATA;
@@ -132,154 +129,182 @@ export default function Dashboard() {
   const isIgEmbed = (url: string) => /instagram\.com\/(p|reel)\//i.test(url);
 
   const linkData = {
-    period: "Mar 30 – Apr 12, 2026",
-    totalClicks: 10,
+    period: "Apr 13 – Apr 27, 2026",
+    totalClicks: 66,
     topLinks: [
-      { path: "Homepage", clicks: 4 },
-      { path: "DDS-PC Midtown", clicks: 2 },
-      { path: "DDS-PC UES", clicks: 1 },
-      { path: "YouTube", clicks: 1 },
+      { path: "Homepage", clicks: 46 },
+      { path: "DDS-PC Midtown", clicks: 11 },
+      { path: "DDS-PC UES", clicks: 9 },
     ],
     trafficSources: [
-      { source: "Direct / Unknown", clicks: 5 },
-      { source: "Referral", clicks: 4 },
+      { source: "Direct / Unknown", clicks: 55 },
+      { source: "Social", clicks: 11 },
     ],
     topCountries: [
-      { country: "United States", clicks: 5 },
+      { country: "United States", clicks: 33 },
+      { country: "Bulgaria", clicks: 4 },
       { country: "The Netherlands", clicks: 4 },
-      { country: "Germany", clicks: 1 },
+      { country: "United Kingdom", clicks: 3 },
+      { country: "Singapore", clicks: 2 },
     ],
     topCities: [
-      { city: "Island Park", clicks: 2 },
-      { city: "Brooklyn", clicks: 1 },
-      { city: "Buffalo", clicks: 1 },
-      { city: "New York City", clicks: 1 },
-      { city: "Frankfurt am Main", clicks: 1 },
+      { city: "New York City", clicks: 22 },
+      { city: "Manchester", clicks: 13 },
+      { city: "Canfield", clicks: 10 },
+      { city: "Amsterdam", clicks: 9 },
+      { city: "Brooklyn", clicks: 7 },
     ],
     devices: [
-      { os: "Windows", clicks: 6 },
-      { os: "Mac OS X", clicks: 2 },
-      { os: "iOS", clicks: 1 },
+      { os: "Mac OS X", clicks: 28 },
+      { os: "Windows", clicks: 18 },
+      { os: "iOS", clicks: 6 },
+      { os: "Android", clicks: 5 },
     ],
   };
 
   const websiteData = {
-    period: "Mar 30 – Apr 13, 2026",
-    sessions: 915,
+    period: "Apr 13 – Apr 27, 2026",
+    sessions: 923,
     topPages: [
-      { page: "/", label: "Home", views: 406 },
-      { page: "/signs-of-failed-gum-graft", label: "Signs of Failed Gum Graft", views: 180 },
-      { page: "/dry-socket-with-bone-graft", label: "Dry Socket with Bone Graft", views: 117 },
-      { page: "/how-painful-is-a-sinus-lift", label: "How Painful Is a Sinus Lift", views: 57 },
-      { page: "/accidentally-blew-nose", label: "Accidentally Blew Nose After Sinus Lift", views: 46 },
-      { page: "/contactus", label: "Contact Us", views: 45 },
-      { page: "/doctors-and-periodontists", label: "Doctors & Periodontists", views: 45 },
-      { page: "/dental-office-upper-east", label: "Dental Office Upper East Side", views: 32 },
+      { page: "/", label: "Home", views: 485 },
+      { page: "/signs-of-failed-gum-graft", label: "Signs of Failed Gum Graft", views: 169 },
+      { page: "/dry-socket-with-bone-graft", label: "Dry Socket with Bone Graft", views: 122 },
+      { page: "/doctors-and-periodontists", label: "Doctors & Periodontists", views: 79 },
+      { page: "/how-painful-is-a-sinus-lift", label: "How Painful Is a Sinus Lift", views: 56 },
+      { page: "/accidentally-blew-nose", label: "Accidentally Blew Nose After Sinus Lift", views: 54 },
+      { page: "/dental-office-upper-east", label: "Dental Office Upper East Side", views: 42 },
       { page: "/sinus-lift-long-term-side", label: "Sinus Lift Long-Term Side Effects", views: 23 },
+      { page: "/contactus", label: "Contact Us", views: 20 },
     ],
     trafficSources: [
-      { source: "Google", medium: "organic", sessions: 583, pct: 63.7 },
-      { source: "Direct", medium: "(none)", sessions: 266, pct: 29.1 },
-      { source: "Bing", medium: "organic", sessions: 22, pct: 2.4 },
-      { source: "Yahoo", medium: "organic", sessions: 11, pct: 1.2 },
-      { source: "Other", medium: "mixed", sessions: 33, pct: 3.6 },
+      { source: "Google", medium: "organic", sessions: 589, pct: 63.8 },
+      { source: "Direct", medium: "(none)", sessions: 261, pct: 28.3 },
+      { source: "Bing", medium: "organic", sessions: 26, pct: 2.8 },
+      { source: "Yahoo", medium: "organic", sessions: 15, pct: 1.6 },
+      { source: "Other", medium: "mixed", sessions: 32, pct: 3.5 },
     ],
     devices: [
-      { device: "Desktop", pct: 53.5 },
+      { device: "Desktop", pct: 52.5 },
       { device: "Mobile", pct: 46.1 },
-      { device: "Tablet", pct: 0.4 },
+      { device: "Tablet", pct: 1.4 },
     ],
     dailyVisitors: [
-      { date: "Mar 30", visitors: 45 },{ date: "Mar 31", visitors: 50 },
-      { date: "Apr 1", visitors: 58 },{ date: "Apr 2", visitors: 55 },
-      { date: "Apr 3", visitors: 62 },{ date: "Apr 4", visitors: 48 },
-      { date: "Apr 5", visitors: 38 },{ date: "Apr 6", visitors: 42 },
-      { date: "Apr 7", visitors: 50 },{ date: "Apr 8", visitors: 48 },
-      { date: "Apr 9", visitors: 55 },{ date: "Apr 10", visitors: 60 },
-      { date: "Apr 11", visitors: 52 },{ date: "Apr 12", visitors: 50 },
-      { date: "Apr 13", visitors: 62 },
+      { date: "Apr 13", visitors: 50 },{ date: "Apr 14", visitors: 55 },
+      { date: "Apr 15", visitors: 65 },{ date: "Apr 16", visitors: 55 },
+      { date: "Apr 17", visitors: 60 },{ date: "Apr 18", visitors: 70 },
+      { date: "Apr 19", visitors: 45 },{ date: "Apr 20", visitors: 35 },
+      { date: "Apr 21", visitors: 42 },{ date: "Apr 22", visitors: 50 },
+      { date: "Apr 23", visitors: 50 },{ date: "Apr 24", visitors: 55 },
+      { date: "Apr 25", visitors: 48 },{ date: "Apr 26", visitors: 50 },
+      { date: "Apr 27", visitors: 42 },
     ],
+    search: {
+      totalClicks: 419,
+      totalImpressions: 26737,
+      avgCTR: 1.6,
+      avgPosition: 18.0,
+      topQueries: [
+        { query: "edgard el chaar", clicks: 11, impressions: 50, ctr: 22.0, position: 4.2 },
+        { query: "dr el chaar", clicks: 10, impressions: 70, ctr: 14.3, position: 5.4 },
+        { query: "i blew my nose after sinus lift", clicks: 9, impressions: 88, ctr: 10.2, position: 2.0 },
+        { query: "can you get dry socket with bone graft", clicks: 5, impressions: 125, ctr: 4.0, position: 2.0 },
+        { query: "pictures of failed gum grafts", clicks: 4, impressions: 268, ctr: 1.5, position: 1.5 },
+      ],
+      topPages: [
+        { page: "Dry Socket with Bone Graft", clicks: 120, impressions: 3572, ctr: 3.4 },
+        { page: "Homepage", clicks: 77, impressions: 905, ctr: 8.5 },
+        { page: "Signs of Failed Gum Graft", clicks: 56, impressions: 4598, ctr: 1.2 },
+        { page: "Accidentally Blew Nose", clicks: 46, impressions: 2804, ctr: 1.6 },
+        { page: "How Painful Is a Sinus Lift", clicks: 29, impressions: 970, ctr: 3.0 },
+      ],
+      searchDevices: [
+        { device: "Mobile", clicks: 278, pct: 66 },
+        { device: "Desktop", clicks: 137, pct: 33 },
+        { device: "Tablet", clicks: 4, pct: 1 },
+      ],
+    },
   };
 
   const podcastData = {
-    period: "All Time",
-    totalEpisodes: 45,
-    totalDownloads: 4376,
-    last7Days: 71,
-    last30Days: 181,
-    last90Days: 530,
+    period: "Apr 13 – Apr 27, 2026",
+    totalEpisodes: 46,
+    totalDownloads: 4596,
+    periodDownloads: 80,
+    last7Days: 11,
+    last30Days: 221,
+    last90Days: 601,
     topEpisodes: [
-      { title: "Allograft & Its Evolution – Dr. Brad McAllister", downloads: 299 },
+      { title: "Allograft & Its Evolution – Dr. Brad McAllister", downloads: 300 },
+      { title: "Future of Dental Industry – Aurelio Sahagun, Straumann", downloads: 194 },
       { title: "Periodontal Diagnosis – Gingivitis", downloads: 193 },
-      { title: "Future of Dental Industry – Aurelio Sahagun, Straumann NA", downloads: 190 },
-      { title: "Periodontal Diagnosis – Periodontitis", downloads: 181 },
-      { title: "Oral and Systemic Health", downloads: 169 },
+      { title: "Periodontal Diagnosis – Periodontitis", downloads: 183 },
+      { title: "Oral and Systemic Health", downloads: 170 },
       { title: "Periodontal Treatment", downloads: 161 },
       { title: "Aspiration to Reality – Youngest Exec in Implant Tech", downloads: 139 },
-      { title: "Root Resorption and Treatment", downloads: 137 },
-      { title: "Soft Tissue Issues Around Natural Teeth", downloads: 134 },
-      { title: "Coaching Millennials in the Professional World", downloads: 127 },
+      { title: "Root Resorption and Treatment", downloads: 138 },
+      { title: "Soft Tissue Around Natural Teeth", downloads: 136 },
+      { title: "Coaching Millennials in the Professional World", downloads: 130 },
     ],
     platforms: [
-      { name: "Spotify", downloads: 1149, pct: 26.3 },
-      { name: "Apple Podcasts", downloads: 972, pct: 22.2 },
-      { name: "Web Browser", downloads: 862, pct: 19.7 },
-      { name: "Buzzsprout Site", downloads: 406, pct: 9.3 },
-      { name: "iVoox", downloads: 329, pct: 7.5 },
-      { name: "Other", downloads: 652, pct: 14.9 },
+      { name: "Web Browser", downloads: 100, pct: 47 },
+      { name: "Apple Podcasts", downloads: 63, pct: 29 },
+      { name: "Spotify", downloads: 32, pct: 15 },
+      { name: "Unknown", downloads: 5, pct: 2 },
+      { name: "iVoox", downloads: 5, pct: 2 },
     ],
     topCountries: [
-      { country: "United States", downloads: 2938 },
-      { country: "Canada", downloads: 136 },
-      { country: "India", downloads: 134 },
-      { country: "Germany", downloads: 117 },
-      { country: "Russia", downloads: 112 },
+      { country: "United States", downloads: 125 },
+      { country: "Germany", downloads: 23 },
+      { country: "Vietnam", downloads: 10 },
+      { country: "Sweden", downloads: 8 },
+      { country: "United Kingdom", downloads: 5 },
     ],
     topCities: [
-      { city: "New York", downloads: 392 },
-      { city: "Brooklyn", downloads: 118 },
-      { city: "Queens", downloads: 87 },
-      { city: "Frankfurt", downloads: 86 },
-      { city: "Philadelphia", downloads: 62 },
+      { city: "New York", downloads: 29 },
+      { city: "Frankfurt", downloads: 18 },
+      { city: "Brooklyn", downloads: 14 },
+      { city: "Stockholm", downloads: 8 },
+      { city: "Boston", downloads: 5 },
     ],
   };
 
   const socialData = {
-    period: "Mar 30 – Apr 12, 2026",
-    followers: 3135,
-    followerGrowth: 4,
-    follows: 8,
-    unfollows: 4,
-    totalViews: 10829,
-    totalReach: 2776,
-    reachChange: -10.2,
-    totalInteractions: 489,
-    interactionSplit: { followers: 56.9, nonFollowers: 43.1 },
-    viewSplit: { followers: 45.2, nonFollowers: 54.8 },
-    viewsByType: { reels: 59.8, posts: 22.5, stories: 17.7 },
-    interactionsByType: { reels: 87.1, posts: 7.6, stories: 5.3 },
-    totalLikes: 198,
-    totalComments: 6,
-    totalSaves: 3,
-    totalShares: 100,
+    period: "Apr 13 – Apr 27, 2026",
+    followers: 3138,
+    followerGrowth: 0,
+    follows: 0,
+    unfollows: 0,
+    totalViews: 5573,
+    totalReach: 1578,
+    reachChange: 13.7,
+    totalInteractions: 155,
+    interactionSplit: { followers: 50.6, nonFollowers: 49.4 },
+    viewSplit: { followers: 39.1, nonFollowers: 60.9 },
+    viewsByType: { reels: 68.1, posts: 8.4, stories: 23.4 },
+    interactionsByType: { reels: 84.4, posts: 1.9, stories: 13.8 },
+    totalLikes: 174,
+    totalComments: 5,
+    totalSaves: 7,
+    totalShares: 17,
     peakHours: "9 AM – 2 PM EST",
+    storyViews: 1137,
+    storyReach: 872,
+    storyCompletion: 90,
+    storyCount: 10,
     dailyViews: [
-      { date: "Mar 30", views: 473 },{ date: "Mar 31", views: 360 },
-      { date: "Apr 1", views: 1481 },{ date: "Apr 2", views: 494 },
-      { date: "Apr 3", views: 3119 },{ date: "Apr 4", views: 1613 },
-      { date: "Apr 5", views: 635 },{ date: "Apr 6", views: 348 },
-      { date: "Apr 7", views: 323 },{ date: "Apr 8", views: 1395 },
-      { date: "Apr 9", views: 782 },{ date: "Apr 10", views: 448 },
-      { date: "Apr 11", views: 1928 },{ date: "Apr 12", views: 1431 },
+      { date: "Apr 13", views: 250 },{ date: "Apr 14", views: 280 },
+      { date: "Apr 15", views: 320 },{ date: "Apr 16", views: 300 },
+      { date: "Apr 17", views: 583 },{ date: "Apr 18", views: 1727 },
+      { date: "Apr 19", views: 400 },{ date: "Apr 20", views: 350 },
+      { date: "Apr 21", views: 1746 },{ date: "Apr 22", views: 500 },
+      { date: "Apr 23", views: 1478 },{ date: "Apr 24", views: 380 },
+      { date: "Apr 25", views: 300 },{ date: "Apr 26", views: 250 },
     ],
     posts: [
-      { id: 1, title: "Dr. Castillo – Educate & Remove Fear", type: "Reel", date: "Apr 2", views: 2916, reach: 1693, likes: 130, comments: 6, saves: 2, shares: 95, er: 14.0, skipRate: 63.8, avgWatch: "9s", watchTime: "5h 7m", igUrl: "https://www.instagram.com/reel/DWpPFRDgeGo/", isTop: true },
-      { id: 2, title: "Treatment vs. Care – DDS PC", type: "Reel", date: "Apr 11", views: 1141, reach: 746, likes: 23, comments: 0, saves: 0, shares: 4, er: 3.4, skipRate: 62.5, avgWatch: "8s", watchTime: "1h 56m", igUrl: "https://www.instagram.com/reel/DW9oP_eSL4S/", isTop: false },
-      { id: 3, title: "DDS PC – Precision & Experience", type: "Carousel", date: "Mar 31", views: 486, reach: 150, likes: 11, comments: 0, saves: 0, shares: 0, er: 6.7, skipRate: 0, avgWatch: "", watchTime: "", igUrl: "https://www.instagram.com/p/DWkA4b4GeTh/", isTop: false },
-      { id: 4, title: "Dr. Dinoi – No Two Patients", type: "Reel", date: "Apr 3", views: 485, reach: 321, likes: 8, comments: 0, saves: 0, shares: 0, er: 2.2, skipRate: 75.6, avgWatch: "4s", watchTime: "29m", igUrl: "https://www.instagram.com/reel/DWrVg8fBRLM/", isTop: false },
-      { id: 5, title: "National Dental Hygienist Week", type: "Reel", date: "Apr 10", views: 458, reach: 288, likes: 14, comments: 0, saves: 0, shares: 1, er: 4.9, skipRate: 77.3, avgWatch: "3s", watchTime: "20m", igUrl: "https://www.instagram.com/reel/DW9tLEwgaPM/", isTop: false },
-      { id: 6, title: "Oral Cancer Awareness Month", type: "Reel", date: "Apr 7", views: 371, reach: 216, likes: 4, comments: 0, saves: 1, shares: 0, er: 2.3, skipRate: 79.8, avgWatch: "3s", watchTime: "12m", igUrl: "https://www.instagram.com/reel/DW2C04hAW_h/", isTop: false },
-      { id: 7, title: "Why Patients Choose Us", type: "Image", date: "Apr 8", views: 271, reach: 155, likes: 8, comments: 0, saves: 0, shares: 0, er: 5.2, skipRate: 0, avgWatch: "", watchTime: "", igUrl: "https://www.instagram.com/p/DW4NdueFE1-/", isTop: false },
+      { id: 1, title: "More Than a Job – New Podcast Episode", type: "Reel", date: "Apr 21", isCollab: true, views: 1876, reach: 990, likes: 44, comments: 0, saves: 2, shares: 7, er: 5.3, skipRate: 62.9, avgWatch: "", watchTime: "", igUrl: "https://www.instagram.com/reel/DXaDxPWgRlN/", isTop: true },
+      { id: 2, title: "Not Every Treatment Is Right – Dr. Approach", type: "Reel", date: "Apr 18", views: 1727, reach: 1026, likes: 64, comments: 2, saves: 4, shares: 8, er: 7.6, skipRate: 55, avgWatch: "", watchTime: "", igUrl: "https://www.instagram.com/reel/DXRzK8uSR1S/", isTop: false },
+      { id: 3, title: "Building Patient Trust – Dr. Bender", type: "Reel", date: "Apr 23", isCollab: true, views: 1955, reach: 909, likes: 59, comments: 4, saves: 1, shares: 1, er: 6.6, skipRate: 70.1, avgWatch: "", watchTime: "", igUrl: "https://www.instagram.com/reel/DXe8R0VBhuA/", isTop: false },
+      { id: 4, title: "The Difference You Can Feel", type: "Reel", date: "Apr 17", views: 583, reach: 383, likes: 12, comments: 0, saves: 0, shares: 1, er: 3.4, skipRate: 77, avgWatch: "", watchTime: "", igUrl: "https://www.instagram.com/reel/DXP1MbWAcJ7/", isTop: false },
     ],
   };
 
@@ -378,15 +403,15 @@ export default function Dashboard() {
               <div className="exec-cols">
                 <div>
                   <div className="exec-col-title">Discovery</div>
-                  <div className="exec-col-body">{d.viewerSplit.nonFollowers}% of views come from non-followers. The algorithm is distributing content — discovery is strong. The Dr. Castillo Reel (2,916 views) drove a 3,119-view spike on Apr 3.</div>
+                  <div className="exec-col-body">{d.viewerSplit.nonFollowers}% of views from non-followers. Reach: 1,578 accounts (+13.7% vs prior). Three Reels exceeded 1,400 views — consistent multi-hit performance, no single-post dependency.</div>
                 </div>
                 <div>
                   <div className="exec-col-title">Engagement</div>
-                  <div className="exec-col-body">{d.kpi.engagementRate.value}% rate with {d.kpi.engagements.value} interactions. Reels drive 87.1% of all interactions. 100 shares but only 3 saves — content spreads but isn't bookmarked.</div>
+                  <div className="exec-col-body">{d.kpi.engagementRate.value}% rate with {d.kpi.engagements.value} interactions. Non-follower interactions at 49.4% — nearly even with followers. Saves at 7. 'Not Every Treatment' achieved 7.6% ER and 55% skip rate.</div>
                 </div>
                 <div>
                   <div className="exec-col-title">Content</div>
-                  <div className="exec-col-body">Doctor-led Reels dominate. Dr. Castillo's 14% ER and 95 shares prove the model. Excluding that outlier, avg Reel ER drops to 3.2% — one-hit dependency, not a system.</div>
+                  <div className="exec-col-body">Reels drive {d.contentMix.reels}% of views and 84.4% of interactions. Stories contribute 23.4% of views with 90% completion. 3,138 followers (0 net — 6 follows, 6 unfollows).</div>
                 </div>
               </div>
             </div>
@@ -517,7 +542,7 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="card">
-              <InsightCard title="Link Attribution · Mar 30 – Apr 12" body="Homepage leads with 5 clicks (50% of traffic). DDS-PC Midtown drew 2 clicks and DDS-PC UES drew 1 — booking page traffic remains low. With only 10 total clicks, link visibility needs strengthening — consider adding UTM-tagged links to social bios and email signatures." severity="info" />
+              <InsightCard title="Link Attribution · Apr 13 – Apr 27" body="Massive improvement: 66 clicks vs 10 last period (+560%). Homepage leads with 46 clicks (70%). DDS-PC Midtown (11) and UES (9) booking pages are gaining traction. New York City dominates at 22 clicks — strong local intent. Add UTM tracking to social bios to better attribute traffic sources." severity="success" />
             </div>
           </>
         )}
@@ -609,8 +634,58 @@ export default function Dashboard() {
                 </div>
               </div>
             </div>
+            <div className="card"><div className="card-hd">Google Search Performance · {websiteData.period}</div>
+              <div className="kpi-row" style={{ marginBottom: 18 }}>
+                {[
+                  { label: "Search Clicks", value: websiteData.search.totalClicks },
+                  { label: "Impressions", value: websiteData.search.totalImpressions.toLocaleString() },
+                  { label: "Avg CTR", value: `${websiteData.search.avgCTR}%` },
+                  { label: "Avg Position", value: websiteData.search.avgPosition.toFixed(0) },
+                ].map((k, i) => (
+                  <div key={i} className="kpi" style={{ animationDelay: `${i * 80}ms` }}>
+                    <div className="kpi-label">{k.label}</div>
+                    <div className="kpi-val">{typeof k.value === "number" ? <AnimatedNumber value={k.value} /> : <span>{k.value}</span>}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="cols2">
+              <div className="card"><div className="card-hd">Top Search Queries</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                  {websiteData.search.topQueries.map((q, i) => (
+                    <div key={i} style={{ display: "flex", alignItems: "center", gap: 14, padding: "8px 12px", background: i === 0 ? "rgba(113,82,98,0.08)" : "rgba(136,163,174,0.06)", borderRadius: 10 }}>
+                      <div style={{ width: 22, height: 22, borderRadius: 99, background: i === 0 ? "#715262" : "#88A3AE", color: "#fff", fontSize: 11, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{i + 1}</div>
+                      <div style={{ flex: 1, fontSize: 12, fontWeight: 500, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" as const }}>{q.query}</div>
+                      <div style={{ display: "flex", gap: 12, flexShrink: 0 }}>
+                        <div style={{ textAlign: "center" as const }}><div className="display-num">{q.clicks}</div><div style={{ fontSize: 9, color: "#9B8E94" }}>clicks</div></div>
+                        <div style={{ textAlign: "center" as const }}><div className="display-num">{q.ctr}%</div><div style={{ fontSize: 9, color: "#9B8E94" }}>CTR</div></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="card"><div className="card-hd">Top Pages in Search</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                  {websiteData.search.topPages.map((p, i) => {
+                    const maxClicks = websiteData.search.topPages[0].clicks;
+                    return (
+                      <div key={i} style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                        <div style={{ width: 130, fontSize: 12, fontWeight: 500, flexShrink: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" as const }}>{p.page}</div>
+                        <div style={{ flex: 1, height: 10, background: "#F1E4DC", borderRadius: 99, overflow: "hidden" }}>
+                          <div style={{ width: `${(p.clicks / maxClicks) * 100}%`, height: "100%", background: i === 0 ? "#715262" : "#88A3AE", borderRadius: 99, transition: "width 1.2s ease" }} />
+                        </div>
+                        <div style={{ display: "flex", gap: 12, flexShrink: 0 }}>
+                          <div style={{ textAlign: "center" as const }}><div className="display-num">{p.clicks}</div><div style={{ fontSize: 9, color: "#9B8E94" }}>clicks</div></div>
+                          <div style={{ textAlign: "center" as const }}><div className="display-num">{p.ctr}%</div><div style={{ fontSize: 9, color: "#9B8E94" }}>CTR</div></div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
             <div className="card">
-              <InsightCard title="Website Intelligence · Mar 30 – Apr 13" body="915 sessions dominated by Google organic (63.7%) — strong SEO performance. Educational content drives massive traffic: 'Signs of Failed Gum Graft' (180 views) and 'Dry Socket with Bone Graft' (117) rank #2 and #3 behind the homepage (406). Contact Us page received 45 views — a strong conversion intent signal. Bing contributes 22 sessions (2.4%). Mobile accounts for 46.1%, requiring continued mobile optimization." severity="info" />
+              <InsightCard title="Website + Search Intelligence · Apr 13 – Apr 27" body="923 site sessions + 419 search clicks from 26,737 impressions. 'Dry Socket with Bone Graft' is the SEO powerhouse: 120 search clicks from 3,572 impressions (3.4% CTR) — the #1 organic content page by a wide margin. Branded queries ('edgard el chaar', 'dr el chaar') combine for 21 clicks at 14–22% CTR. Educational content drives the funnel: sinus lift, gum graft, and dry socket pages account for 260 of 419 search clicks (62%). Homepage CTR of 8.5% is strong. Mobile leads search at 66%." severity="info" />
             </div>
           </>
         )}
@@ -662,7 +737,7 @@ export default function Dashboard() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 18 }}>
               {d.posts.map((p: any) => { const url = mediaUrls[p.id]; const isEditing = editingMedia === p.id; const maxViews = Math.max(...d.posts.map((x: any) => x.views), 1); return (
                 <div key={p.id} className={`postcard ${p.isTop ? "postcard-top" : ""}`}>
-                  <div className="postcard-header"><div className="postcard-type-badge">{p.type}</div>{p.isTop && <div className="postcard-top-badge">★ Top Post</div>}</div>
+                  <div className="postcard-header"><div className="postcard-type-badge">{p.type}</div>{p.isTop && <div className="postcard-top-badge">★ Top Post</div>}{p.isCollab && <div className="postcard-top-badge" style={{background: "rgba(88,130,220,0.15)", color: "#5882DC"}}>⚡ Collab</div>}</div>
                   <div className="postcard-title">{p.title}</div>
                   <div className={`postcard-media ${url ? "has-media" : ""}`}>
                     {!url && !isEditing && (<div className="postcard-media-empty" onClick={() => { setEditingMedia(p.id); setMediaInput(""); }}><div className="postcard-empty-inner"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#BDCBCE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="4"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span className="postcard-empty-label">Add Post Visual</span><span className="postcard-empty-hint">Image, video, or Instagram link</span></div></div>)}
@@ -684,7 +759,7 @@ export default function Dashboard() {
                       <div style={{ width: 22, height: 22, borderRadius: 99, background: p.isTop ? "#715262" : i < 3 ? "#88A3AE" : "#BDCBCE", color: "#fff", fontSize: 11, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{i + 1}</div>
                       <div style={{ minWidth: 0, flex: "0 0 200px" }}>
                         <div style={{ fontSize: 13, fontWeight: 600, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" as const }}>{p.title}</div>
-                        <div style={{ fontSize: 11, color: "#9B8E94", marginTop: 2 }}>{p.type} · {p.date}{p.isTop ? " · ★ Viral Outlier" : ""}</div>
+                        <div style={{ fontSize: 11, color: "#9B8E94", marginTop: 2 }}>{p.type} · {p.date}{p.isTop ? " · ★ Top Post" : ""}{p.isCollab ? " · ⚡ Collab" : ""}</div>
                       </div>
                       <div style={{ flex: 1, height: 10, background: "#F1E4DC", borderRadius: 99, overflow: "hidden" }}>
                         <div style={{ width: `${(p.views / maxV) * 100}%`, height: "100%", background: p.isTop ? "#715262" : i < 3 ? "#88A3AE" : "#BDCBCE", borderRadius: 99, transition: "width 1.2s ease" }} />
@@ -805,8 +880,8 @@ export default function Dashboard() {
             </div>
 
             <div className="card">
-              <InsightCard title="Social Intelligence · Mar 30 – Apr 12" body="10,829 total views with 54.8% from non-followers — strong algorithmic distribution. The Dr. Castillo Reel (2,678 views, 95 shares, 14% ER) was a breakout viral outlier, single-handedly driving 47.9% of all CSV-tracked views. Excluding this outlier, average Reel views drop to 541 — revealing heavy dependency on one-hit performance. Reels dominate both views (59.8%) and interactions (87.1%). 100 total shares vs only 3 saves signals content that spreads but isn't bookmarked — create more save-worthy educational content." severity="info" />
-              <InsightCard title="Funnel Diagnosis" body={`Reach: 2,776 accounts (-10.2% vs prior). Views: 10,829. Interactions: 489. Follower growth: +4 (8 follows, 4 unfollows). The conversion bottleneck is clear: 2,776 reached → only 8 follows = 0.29% conversion. The algorithm IS distributing content (54.8% non-follower views) but the profile isn't converting visitors into followers. Prioritize follow-intent CTAs, series-based content that creates return visits, and profile optimization.`} severity="warning" />
+              <InsightCard title="Social Intelligence · Apr 13 – Apr 27" body="5,573 platform views reaching 1,578 accounts (+13.7%). 60.9% non-follower views — strong discovery. No single-post dependency: three Reels exceeded 1,400 views. 'Not Every Treatment' achieved 7.6% ER and 55% skip rate. Saves at 7 (+133% vs prior). Reels drive 68.1% of views and 84.4% of interactions. 10 Stories with 90% completion and 1,137 views. Doctor-led Reel strategy is now a consistent system." severity="info" />
+              <InsightCard title="Period Comparison" body="Consistent performance vs prior: views 5,573 (vs 10,829 — but prior was inflated by Castillo viral outlier). Reach: 1,578 (+13.7%). Avg Reel ER: 5.7% (vs 3.2% excl. outlier last period). Best skip rate: 55% (vs 63% prior). Non-follower interactions at 49.4% — nearly even split. Follower growth flat at 0 net (6 follows, 6 unfollows) — conversion remains the gap. Profile CTAs and series continuity needed." severity="warning" />
             </div>
           </>
         )}
@@ -905,7 +980,7 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="card">
-              <InsightCard title="Podcast Intelligence · All Time" body="4,376 total downloads across 45 episodes. Spotify leads (26.3%), followed by Apple Podcasts (22.2%) and Web Browser (19.7%) — healthy multi-platform distribution. NYC metro dominates: New York (392), Brooklyn (118), Queens (87) = 597 downloads (20% of US traffic). International reach across 15+ countries. 71 downloads in the last 7 days." severity="success" />
+              <InsightCard title="Podcast Intelligence · Apr 13 – Apr 27" body="80 downloads this period, 4,596 all-time across 46 episodes. Web Browser now leads apps at 47% (was Spotify last period) — listeners discovering via website embeds. Apple Podcasts strong at 29%. Latest episode 'More Than a Job' pulled 20 first-week downloads. NYC metro leads: New York (29) + Brooklyn (14) = 43 downloads. Germany emerged as #2 country at 23 downloads (10%). 24 countries reached across last 5 episodes — strong international distribution." severity="success" />
             </div>
           </>
         )}
