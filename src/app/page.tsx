@@ -341,11 +341,11 @@ export default function Dashboard() {
       </div>
 
       {/* TABS */}
-      <div style={{ display: "flex", justifyContent: "center", gap: 6, margin: "12px 0 4px" }}>
+      {(tab === "links" || tab === "social") && <div style={{ display: "flex", justifyContent: "center", gap: 6, margin: "12px 0 4px" }}>
         {(["7d", "30d"] as const).map((r) => (
           <button key={r} onClick={() => setTimeRange(r)} style={{ padding: "6px 18px", borderRadius: 99, border: `1.5px solid ${timeRange === r ? "#715262" : "#D9CCC1"}`, background: timeRange === r ? "#715262" : "transparent", color: timeRange === r ? "#fff" : "#715262", fontWeight: 700, fontSize: 13, cursor: "pointer", transition: "all 0.2s" }}>{r === "7d" ? "Last 7 Days" : "Last 30 Days"}</button>
         ))}
-      </div>
+      </div>}
       <div className="tabs">
         {tabs.map((t) => (
           <button key={t.id} className={`tab ${tab === t.id ? "on" : ""}`} onClick={() => setTab(t.id)}>
