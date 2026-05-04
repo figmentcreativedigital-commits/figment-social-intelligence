@@ -177,6 +177,12 @@ export default function Dashboard() {
       { device: "Mobile", pct: 49.2 },
       { device: "Tablet", pct: 1.3 },
     ],
+    dailyVisitors: [
+      { date: "Apr 27", visitors: 40 },{ date: "Apr 28", visitors: 50 },
+      { date: "Apr 29", visitors: 55 },{ date: "Apr 30", visitors: 48 },
+      { date: "May 1", visitors: 58 },{ date: "May 2", visitors: 55 },
+      { date: "May 3", visitors: 35 },{ date: "May 4", visitors: 20 },
+    ],
     search: {
       totalClicks: 2666, totalImpressions: 185549, avgCTR: 1.44, avgPosition: 16.2,
       note: "3-month aggregate (Feb 3 – May 2)",
@@ -236,6 +242,12 @@ export default function Dashboard() {
     interactionsByType: { reels: 84.4, posts: 1.9, stories: 13.8 },
     totalLikes: 66, totalComments: 0, totalSaves: 1, totalShares: 4,
     storyViews: 656, storyCompletion: 90, storyCount: 8,
+    dailyViews: [
+      { date: "Apr 27", views: 400 },{ date: "Apr 28", views: 350 },
+      { date: "Apr 29", views: 450 },{ date: "Apr 30", views: 1984 },
+      { date: "May 1", views: 900 },{ date: "May 2", views: 500 },
+      { date: "May 3", views: 300 },
+    ],
     posts: [
       { id: 1, title: "Dr. Tamay – Every Generation", type: "Reel", date: "Apr 30", views: 1984, reach: 1081, likes: 44, comments: 0, saves: 1, shares: 3, er: 4.5, skipRate: 69.7, avgWatch: "9s", igUrl: "", isTop: true },
       { id: 2, title: "Gum Recession Explained", type: "Carousel", date: "Apr 27", views: 721, reach: 217, likes: 12, comments: 0, saves: 0, shares: 1, er: 6.0, skipRate: 0, avgWatch: "", igUrl: "", isTop: false },
@@ -253,6 +265,13 @@ export default function Dashboard() {
     interactionsByType: { reels: 85, posts: 5, stories: 10 },
     totalLikes: 290, totalComments: 6, totalSaves: 10, totalShares: 32,
     storyViews: 2487, storyCompletion: 89, storyCount: 24,
+    dailyViews: [
+      { date: "Apr 7", views: 442 },{ date: "Apr 11", views: 1278 },
+      { date: "Apr 17", views: 601 },{ date: "Apr 18", views: 1784 },
+      { date: "Apr 21", views: 1835 },{ date: "Apr 23", views: 1800 },
+      { date: "Apr 27", views: 721 },{ date: "Apr 30", views: 1984 },
+      { date: "May 1", views: 436 },{ date: "May 2", views: 170 },
+    ],
     posts: [
       { id: 1, title: "Dr. Tamay – Every Generation", type: "Reel", date: "Apr 30", views: 1984, reach: 1081, likes: 44, comments: 0, saves: 1, shares: 3, er: 4.5, skipRate: 69.7, avgWatch: "9s", igUrl: "", isTop: true },
       { id: 2, title: "More Than a Job – Podcast", type: "Reel", date: "Apr 21", views: 1835, reach: 1026, likes: 46, comments: 0, saves: 2, shares: 7, er: 5.4, skipRate: 62.9, avgWatch: "14s", igUrl: "", isTop: false, isCollab: true },
