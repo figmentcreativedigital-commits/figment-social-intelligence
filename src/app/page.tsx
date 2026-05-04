@@ -134,6 +134,10 @@ export default function Dashboard() {
     topLinks: [{ path: "Homepage", clicks: 20 }, { path: "Midtown", clicks: 5 }, { path: "UES", clicks: 3 }],
     topCountries: [{ country: "United States", clicks: 18 }, { country: "Bulgaria", clicks: 4 }, { country: "United Kingdom", clicks: 3 }],
     topCities: [{ city: "New York City", clicks: 8 }, { city: "Manchester", clicks: 5 }, { city: "Canfield", clicks: 4 }],
+    trafficSources: [
+      { source: "Direct / Unknown", clicks: 30 },
+      { source: "Social", clicks: 5 },
+    ],
     devices: [{ os: "Mac OS X", clicks: 15 }, { os: "Windows", clicks: 10 }, { os: "iOS", clicks: 3 }],
   };
   const linkData30d = {
@@ -141,6 +145,10 @@ export default function Dashboard() {
     topLinks: [{ path: "Homepage", clicks: 56 }, { path: "Midtown", clicks: 12 }, { path: "UES", clicks: 9 }, { path: "YouTube", clicks: 1 }],
     topCountries: [{ country: "United States", clicks: 327 }, { country: "Bulgaria", clicks: 54 }, { country: "The Netherlands", clicks: 23 }, { country: "United Kingdom", clicks: 15 }],
     topCities: [{ city: "New York City", clicks: 23 }, { city: "Manchester", clicks: 13 }, { city: "Amsterdam", clicks: 11 }, { city: "Canfield", clicks: 10 }],
+    trafficSources: [
+      { source: "Direct / Unknown", clicks: 340 },
+      { source: "Social", clicks: 99 },
+    ],
     devices: [{ os: "Mac OS X", clicks: 249 }, { os: "Windows", clicks: 88 }, { os: "iOS", clicks: 8 }, { os: "Android", clicks: 5 }],
   };
   const linkData = timeRange === "7d" ? linkData7d : linkData30d;
