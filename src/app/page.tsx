@@ -3,22 +3,21 @@ import { useState, useEffect } from "react";
 
 // Fallback data — used while loading or if Sheets API fails
 const FALLBACK_DATA = {
-  client: { name: "EEC", fullName: "Edgard El Chaar, DDS, PC", period: "Apr 27 – May 4, 2026" },
+  client: { name: "EEC", fullName: "Edgard El Chaar, DDS, PC", period: "May 11 – May 17, 2026" },
   kpi: {
-    followers: { value: 3140, change: 2, label: "Followers" },
-    reach: { value: 1408, label: "Reach" },
-    views: { value: 5219, label: "Total Views" },
-    engagementRate: { value: 8.0, label: "Engagement Rate", suffix: "%" },
-    engagements: { value: 113, label: "Engagements" },
-    watchTime: { value: "3h 32m", label: "Watch Time" },
+    followers: { value: 3133, change: 4, label: "Followers" },
+    reach: { value: 1430, label: "Reach" },
+    views: { value: 3759, label: "Total Views" },
+    engagementRate: { value: 11.4, label: "Engagement Rate", suffix: "%" },
+    engagements: { value: 163, label: "Engagements" },
+    watchTime: { value: "3h 43m", label: "Watch Time" },
   },
   posts: [
-    { id: 1, title: "Dr. Tamay – Every Generation", type: "Reel", views: 1984, reach: 1081, likes: 44, comments: 0, saves: 1, shares: 3, isTop: true, igPostUrl: "" },
-    { id: 2, title: "Gum Recession Explained", type: "Carousel", views: 721, reach: 217, likes: 12, comments: 0, saves: 0, shares: 1, isTop: false, igPostUrl: "" },
-    { id: 3, title: "Dental Implants – Are They Right?", type: "Carousel", views: 436, reach: 134, likes: 7, comments: 0, saves: 0, shares: 1, isTop: false, igPostUrl: "" },
-    { id: 4, title: "Every Step Matters", type: "Reel", views: 170, reach: 78, likes: 3, comments: 0, saves: 0, shares: 0, isTop: false, igPostUrl: "" },
+    { id: 1, title: "The Power of Identity", type: "Reel", views: 1708, reach: 936, likes: 93, comments: 1, saves: 3, shares: 4, isTop: true, igPostUrl: "" },
+    { id: 2, title: "Trends Fade, Identity Persists", type: "Reel", views: 395, reach: 237, likes: 5, comments: 0, saves: 0, shares: 1, isTop: false, igPostUrl: "" },
+    { id: 3, title: "Wine Stains on Teeth", type: "Carousel", views: 195, reach: 65, likes: 2, comments: 0, saves: 0, shares: 0, isTop: false, igPostUrl: "" },
   ] as any[],
-  contentMix: { posts: 34, reels: 53, stories: 14 },
+  contentMix: { posts: 18, reels: 69, stories: 13 },
   audience: {
     gender: { male: 53, female: 47 },
     age: [
@@ -26,7 +25,7 @@ const FALLBACK_DATA = {
       { range: "45-54", pct: 21 }, { range: "55-64", pct: 13 }, { range: "65+", pct: 6 },
     ],
   },
-  viewerSplit: { followers: 46, nonFollowers: 54 },
+  viewerSplit: { followers: 32, nonFollowers: 68 },
 };
 
 type ReportData = typeof FALLBACK_DATA;
@@ -130,83 +129,130 @@ export default function Dashboard() {
   const isIgEmbed = (url: string) => /instagram\.com\/(p|reel)\//i.test(url);
 
   const linkData7d = {
-    period: "Apr 27 – May 4, 2026", totalClicks: 39,
-    topLinks: [{ path: "Homepage", clicks: 20 }, { path: "Midtown", clicks: 5 }, { path: "UES", clicks: 3 }],
-    topCountries: [{ country: "United States", clicks: 18 }, { country: "Bulgaria", clicks: 4 }, { country: "United Kingdom", clicks: 3 }],
-    topCities: [{ city: "New York City", clicks: 8 }, { city: "Manchester", clicks: 5 }, { city: "Canfield", clicks: 4 }],
-    trafficSources: [
-      { source: "Direct / Unknown", clicks: 30 },
-      { source: "Social", clicks: 5 },
-    ],
-    devices: [{ os: "Mac OS X", clicks: 15 }, { os: "Windows", clicks: 10 }, { os: "iOS", clicks: 3 }],
+    period: "May 11 – May 18, 2026", totalClicks: 195,
+    topLinks: [{ path: "General /*", clicks: 178 }, { path: "Homepage", clicks: 14 }, { path: "UES Booking", clicks: 2 }, { path: "YouTube", clicks: 1 }],
+    trafficSources: [{ source: "Direct / Unknown", clicks: 170 }, { source: "Social", clicks: 15 }],
+    topCountries: [{ country: "United States", clicks: 178 }, { country: "Luxembourg", clicks: 7 }, { country: "Singapore", clicks: 5 }, { country: "Spain", clicks: 3 }],
+    topCities: [{ city: "New York City", clicks: 50 }, { city: "Luxembourg", clicks: 7 }, { city: "Singapore", clicks: 5 }],
+    devices: [{ os: "Windows", clicks: 80 }, { os: "Mac OS X", clicks: 50 }, { os: "iOS", clicks: 25 }, { os: "Android", clicks: 15 }],
   };
   const linkData30d = {
-    period: "Apr 4 – May 4, 2026", totalClicks: 440,
-    topLinks: [{ path: "Homepage", clicks: 56 }, { path: "Midtown", clicks: 12 }, { path: "UES", clicks: 9 }, { path: "YouTube", clicks: 1 }],
-    topCountries: [{ country: "United States", clicks: 327 }, { country: "Bulgaria", clicks: 54 }, { country: "The Netherlands", clicks: 23 }, { country: "United Kingdom", clicks: 15 }],
-    topCities: [{ city: "New York City", clicks: 23 }, { city: "Manchester", clicks: 13 }, { city: "Amsterdam", clicks: 11 }, { city: "Canfield", clicks: 10 }],
-    trafficSources: [
-      { source: "Direct / Unknown", clicks: 340 },
-      { source: "Social", clicks: 99 },
-    ],
-    devices: [{ os: "Mac OS X", clicks: 249 }, { os: "Windows", clicks: 88 }, { os: "iOS", clicks: 8 }, { os: "Android", clicks: 5 }],
+    period: "Apr 18 – May 18, 2026", totalClicks: 733,
+    topLinks: [{ path: "General /*", clicks: 655 }, { path: "Homepage", clicks: 56 }, { path: "UES Booking", clicks: 4 }, { path: "Midtown Booking", clicks: 2 }],
+    trafficSources: [{ source: "Direct / Unknown", clicks: 600 }, { source: "Social", clicks: 100 }],
+    topCountries: [{ country: "United States", clicks: 441 }, { country: "United Kingdom", clicks: 106 }, { country: "Netherlands", clicks: 65 }, { country: "Bulgaria", clicks: 57 }],
+    topCities: [{ city: "New York City", clicks: 80 }, { city: "London", clicks: 40 }, { city: "Amsterdam", clicks: 25 }],
+    devices: [{ os: "Windows", clicks: 300 }, { os: "Mac OS X", clicks: 200 }, { os: "iOS", clicks: 50 }, { os: "Android", clicks: 30 }],
   };
   const linkData = timeRange === "7d" ? linkData7d : linkData30d;
 
-  const websiteData = {
-    period: "Apr 27 – May 4, 2026",
-    sessions: 463,
+  const websiteData7d = {
+    period: "May 11 – May 17, 2026",
+    sessions: 439,
     topPages: [
-      { page: "/", label: "Home", views: 183 },
-      { page: "/signs-of-failed-gum-graft", label: "Signs of Failed Gum Graft", views: 99 },
-      { page: "/dry-socket-with-bone-graft", label: "Dry Socket with Bone Graft", views: 55 },
-      { page: "/accidentally-blew-nose", label: "Accidentally Blew Nose", views: 33 },
-      { page: "/how-painful-is-a-sinus-lift", label: "Sinus Lift Pain", views: 23 },
-      { page: "/dental-office-upper-east", label: "Dental Office UES", views: 20 },
-      { page: "/doctors-and-periodontists", label: "Doctors & Periodontists", views: 18 },
-      { page: "/contactus", label: "Contact Us", views: 12 },
+      { page: "/", label: "Home", views: 222 },
+      { page: "/signs-of-failed-gum-graft", label: "Signs of Failed Gum Graft", views: 76 },
+      { page: "/dry-socket-with-bone-graft", label: "Dry Socket with Bone Graft", views: 42 },
+      { page: "/accidentally-blew-nose", label: "Accidentally Blew Nose", views: 26 },
+      { page: "/doctors-and-periodontists", label: "Doctors & Periodontists", views: 19 },
+      { page: "/how-painful-is-a-sinus-lift", label: "Sinus Lift Pain", views: 15 },
+      { page: "/dental-office-upper-east", label: "Dental Office UES", views: 13 },
+      { page: "/contactus", label: "Contact Us", views: 26 },
     ],
     trafficSources: [
-      { source: "Google", medium: "organic", sessions: 299, pct: 64.6 },
-      { source: "Direct", medium: "(none)", sessions: 136, pct: 29.4 },
-      { source: "Bing", medium: "organic", sessions: 13, pct: 2.8 },
-      { source: "Other", medium: "mixed", sessions: 15, pct: 3.2 },
+      { source: "Google", sessions: 235, pct: 53.5 },
+      { source: "Direct", sessions: 168, pct: 38.3 },
+      { source: "Bing", sessions: 10, pct: 2.3 },
+      { source: "Yahoo", sessions: 8, pct: 1.8 },
+      { source: "Facebook", sessions: 4, pct: 0.9 },
+      { source: "Other", sessions: 14, pct: 3.2 },
     ],
     devices: [
-      { device: "Desktop", pct: 49.5 },
-      { device: "Mobile", pct: 49.2 },
-      { device: "Tablet", pct: 1.3 },
+      { device: "Desktop", pct: 58.6 },
+      { device: "Mobile", pct: 40.4 },
+      { device: "Tablet", pct: 1.0 },
     ],
     dailyVisitors: [
-      { date: "Apr 27", visitors: 40 },{ date: "Apr 28", visitors: 50 },
-      { date: "Apr 29", visitors: 55 },{ date: "Apr 30", visitors: 48 },
-      { date: "May 1", visitors: 58 },{ date: "May 2", visitors: 55 },
-      { date: "May 3", visitors: 35 },{ date: "May 4", visitors: 20 },
+      { date: "May 11", visitors: 55 },{ date: "May 12", visitors: 60 },
+      { date: "May 13", visitors: 65 },{ date: "May 14", visitors: 70 },
+      { date: "May 15", visitors: 62 },{ date: "May 16", visitors: 55 },
+      { date: "May 17", visitors: 45 },
     ],
     search: {
-      totalClicks: 2666, totalImpressions: 185549, avgCTR: 1.44, avgPosition: 16.2,
-      note: "3-month aggregate (Feb 3 – May 2)",
+      totalClicks: 765, totalImpressions: 59425, avgCTR: 1.29, avgPosition: 16.0,
+      note: "30-day (Apr 18 – May 17)",
       topQueries: [
-        { query: "edgard el chaar", clicks: 75, ctr: 22.2, position: 2.0 },
-        { query: "i blew my nose after sinus lift", clicks: 60, ctr: 10.0, position: 2.4 },
-        { query: "dr el chaar", clicks: 57, ctr: 17.1, position: 3.5 },
-        { query: "edgar el chaar", clicks: 38, ctr: 30.9, position: 1.3 },
-        { query: "can you get dry socket with bone graft", clicks: 31, ctr: 4.5, position: 2.5 },
+        { query: "i blew my nose after sinus lift", clicks: 20, ctr: 10.9, position: 2.0 },
+        { query: "edgard el chaar", clicks: 20, ctr: 17.9, position: 3.6 },
+        { query: "edgar el chaar", clicks: 12, ctr: 23.1, position: 1.4 },
+        { query: "dr edgard el chaar", clicks: 10, ctr: 35.7, position: 1.3 },
+        { query: "dry socket with bone graft", clicks: 9, ctr: 5.4, position: 1.8 },
       ],
       topPages: [
-        { page: "Dry Socket with Bone Graft", clicks: 738, impressions: 22043, ctr: 3.4 },
-        { page: "Homepage", clicks: 509, impressions: 6059, ctr: 8.4 },
-        { page: "Signs of Failed Gum Graft", clicks: 426, impressions: 31012, ctr: 1.4 },
-        { page: "Accidentally Blew Nose", clicks: 293, impressions: 22778, ctr: 1.3 },
-        { page: "Sinus Lift Pain", clicks: 184, impressions: 5579, ctr: 3.3 },
+        { page: "Dry Socket with Bone Graft", clicks: 212, impressions: 6659, ctr: 3.2 },
+        { page: "Homepage", clicks: 138, impressions: 2080, ctr: 6.6 },
+        { page: "Signs of Failed Gum Graft", clicks: 127, impressions: 10416, ctr: 1.2 },
+        { page: "Accidentally Blew Nose", clicks: 93, impressions: 13902, ctr: 0.7 },
+        { page: "Sinus Lift Pain", clicks: 38, impressions: 1743, ctr: 2.2 },
       ],
     },
   };
+  const websiteData30d = {
+    period: "Apr 18 – May 17, 2026",
+    sessions: 1852,
+    topPages: [
+      { page: "/", label: "Home", views: 906 },
+      { page: "/signs-of-failed-gum-graft", label: "Signs of Failed Gum Graft", views: 354 },
+      { page: "/dry-socket-with-bone-graft", label: "Dry Socket with Bone Graft", views: 233 },
+      { page: "/accidentally-blew-nose", label: "Accidentally Blew Nose", views: 110 },
+      { page: "/doctors-and-periodontists", label: "Doctors & Periodontists", views: 107 },
+      { page: "/how-painful-is-a-sinus-lift", label: "Sinus Lift Pain", views: 85 },
+      { page: "/dental-office-upper-east", label: "Dental Office UES", views: 66 },
+      { page: "/contactus", label: "Contact Us", views: 95 },
+    ],
+    trafficSources: [
+      { source: "Google", sessions: 1113, pct: 60.1 },
+      { source: "Direct", sessions: 590, pct: 31.8 },
+      { source: "Bing", sessions: 49, pct: 2.6 },
+      { source: "Yahoo", sessions: 33, pct: 1.8 },
+      { source: "Other", sessions: 67, pct: 3.7 },
+    ],
+    devices: [
+      { device: "Desktop", pct: 52.4 },
+      { device: "Mobile", pct: 46.5 },
+      { device: "Tablet", pct: 1.1 },
+    ],
+    dailyVisitors: [
+      { date: "Apr 18", visitors: 55 },{ date: "Apr 25", visitors: 60 },
+      { date: "May 1", visitors: 65 },{ date: "May 4", visitors: 70 },
+      { date: "May 8", visitors: 60 },{ date: "May 11", visitors: 55 },
+      { date: "May 14", visitors: 70 },{ date: "May 17", visitors: 45 },
+    ],
+    search: {
+      totalClicks: 765, totalImpressions: 59425, avgCTR: 1.29, avgPosition: 16.0,
+      note: "30-day (Apr 18 – May 17)",
+      topQueries: [
+        { query: "i blew my nose after sinus lift", clicks: 20, ctr: 10.9, position: 2.0 },
+        { query: "edgard el chaar", clicks: 20, ctr: 17.9, position: 3.6 },
+        { query: "edgar el chaar", clicks: 12, ctr: 23.1, position: 1.4 },
+        { query: "dr edgard el chaar", clicks: 10, ctr: 35.7, position: 1.3 },
+        { query: "dry socket with bone graft", clicks: 9, ctr: 5.4, position: 1.8 },
+      ],
+      topPages: [
+        { page: "Dry Socket with Bone Graft", clicks: 212, impressions: 6659, ctr: 3.2 },
+        { page: "Homepage", clicks: 138, impressions: 2080, ctr: 6.6 },
+        { page: "Signs of Failed Gum Graft", clicks: 127, impressions: 10416, ctr: 1.2 },
+        { page: "Accidentally Blew Nose", clicks: 93, impressions: 13902, ctr: 0.7 },
+        { page: "Sinus Lift Pain", clicks: 38, impressions: 1743, ctr: 2.2 },
+      ],
+    },
+  };
+  const websiteData = timeRange === "7d" ? websiteData7d : websiteData30d;
 
   const podcastData = {
-    period: "All Time (as of May 4, 2026)",
-    totalEpisodes: 47, totalDownloads: 4614, periodDownloads: 26,
-    last7Days: 18, last30Days: 214, last90Days: 602,
+    period: "All Time (as of May 18, 2026)",
+    totalEpisodes: 47, totalDownloads: 4641, periodDownloads: 4,
+    last7Days: 4, last30Days: 56, last90Days: 496,
     topEpisodes: [
       { title: "Allograft & Evolution – Dr. Brad McAllister", downloads: 300 },
       { title: "Future of Dental Industry – Straumann", downloads: 194 },
@@ -215,73 +261,73 @@ export default function Dashboard() {
       { title: "Oral and Systemic Health", downloads: 171 },
     ],
     platforms: [
-      { name: "Web Browser", downloads: 90, pct: 47 },
-      { name: "Apple Podcasts", downloads: 59, pct: 31 },
-      { name: "Spotify", downloads: 25, pct: 13 },
+      { name: "Web Browser", downloads: 96, pct: 45 },
+      { name: "Apple Podcasts", downloads: 70, pct: 33 },
+      { name: "Spotify", downloads: 27, pct: 12 },
       { name: "iVoox", downloads: 5, pct: 2 },
+      { name: "Amazon Echo", downloads: 5, pct: 2 },
     ],
     topCountries: [
       { country: "United States", downloads: 125 },
       { country: "Germany", downloads: 23 },
       { country: "Vietnam", downloads: 10 },
+      { country: "Canada", downloads: 8 },
+      { country: "Sweden", downloads: 8 },
     ],
     topCities: [
-      { city: "New York", downloads: 29 },
-      { city: "Frankfurt", downloads: 18 },
-      { city: "Brooklyn", downloads: 14 },
+      { city: "New York", downloads: 30 },
+      { city: "Frankfurt", downloads: 16 },
+      { city: "Ashburn", downloads: 15 },
+      { city: "Brooklyn", downloads: 12 },
+      { city: "Stockholm", downloads: 7 },
     ],
   };
 
   const socialData7d = {
-    period: "Apr 27 – May 3, 2026",
-    followers: 3140, followerGrowth: 2, follows: 8, unfollows: 6,
-    totalViews: 5219, totalReach: 1408, reachChange: -10.8, totalInteractions: 113,
-    viewSplit: { followers: 46.4, nonFollowers: 53.6 },
-    interactionSplit: { followers: 50.6, nonFollowers: 49.4 },
-    viewsByType: { reels: 52.9, posts: 33.6, stories: 13.5 },
-    interactionsByType: { reels: 84.4, posts: 1.9, stories: 13.8 },
-    totalLikes: 66, totalComments: 0, totalSaves: 1, totalShares: 4,
-    storyViews: 656, storyCompletion: 90, storyCount: 8,
+    period: "May 11 – May 17, 2026",
+    followers: 3133, followerGrowth: 4, follows: 9, unfollows: 5,
+    totalViews: 3759, totalReach: 1430, reachChange: 14.9, totalInteractions: 163,
+    viewSplit: { followers: 32.4, nonFollowers: 67.6 },
+    interactionSplit: { followers: 18.4, nonFollowers: 81.6 },
+    viewsByType: { reels: 69.4, posts: 18.0, stories: 12.5 },
+    interactionsByType: { reels: 93.9, posts: 2.7, stories: 3.4 },
+    totalLikes: 100, totalComments: 1, totalSaves: 3, totalShares: 5,
+    storyViews: 478, storyCompletion: 90, storyCount: 7,
     dailyViews: [
-      { date: "Apr 27", views: 400 },{ date: "Apr 28", views: 350 },
-      { date: "Apr 29", views: 450 },{ date: "Apr 30", views: 1984 },
-      { date: "May 1", views: 900 },{ date: "May 2", views: 500 },
-      { date: "May 3", views: 300 },
+      { date: "May 11", views: 300 },{ date: "May 12", views: 350 },
+      { date: "May 13", views: 1708 },{ date: "May 14", views: 400 },
+      { date: "May 15", views: 250 },{ date: "May 16", views: 395 },
+      { date: "May 17", views: 200 },
     ],
     posts: [
-      { id: 1, title: "Dr. Tamay – Every Generation", type: "Reel", date: "Apr 30", views: 1984, reach: 1081, likes: 44, comments: 0, saves: 1, shares: 3, er: 4.5, skipRate: 69.7, avgWatch: "9s", igUrl: "", isTop: true },
-      { id: 2, title: "Gum Recession Explained", type: "Carousel", date: "Apr 27", views: 721, reach: 217, likes: 12, comments: 0, saves: 0, shares: 1, er: 6.0, skipRate: 0, avgWatch: "", igUrl: "", isTop: false },
-      { id: 3, title: "Dental Implants – Right for You?", type: "Carousel", date: "May 1", views: 436, reach: 134, likes: 7, comments: 0, saves: 0, shares: 1, er: 6.0, skipRate: 0, avgWatch: "", igUrl: "", isTop: false },
-      { id: 4, title: "Every Step Matters", type: "Reel", date: "May 2", views: 170, reach: 78, likes: 3, comments: 0, saves: 0, shares: 0, er: 4.2, skipRate: 67.4, avgWatch: "6s", igUrl: "", isTop: false },
+      { id: 1, title: "The Power of Identity", type: "Reel", date: "May 13", views: 1708, reach: 936, likes: 93, comments: 1, saves: 3, shares: 4, er: 11.0, skipRate: 51.9, avgWatch: "12s", igUrl: "", isTop: true },
+      { id: 2, title: "Trends Fade, Identity Persists", type: "Reel", date: "May 16", views: 395, reach: 237, likes: 5, comments: 0, saves: 0, shares: 1, er: 2.1, skipRate: 73.8, avgWatch: "4s", igUrl: "", isTop: false },
+      { id: 3, title: "Wine Stains on Teeth", type: "Carousel", date: "May 14", views: 195, reach: 65, likes: 2, comments: 0, saves: 0, shares: 0, er: 3.1, skipRate: 0, avgWatch: "", igUrl: "", isTop: false },
     ],
   };
   const socialData30d = {
-    period: "Apr 4 – May 4, 2026",
-    followers: 3140, followerGrowth: 2, follows: 8, unfollows: 6,
-    totalViews: 11259, totalReach: 7305, reachChange: 0, totalInteractions: 361,
-    viewSplit: { followers: 46, nonFollowers: 54 },
-    interactionSplit: { followers: 50, nonFollowers: 50 },
-    viewsByType: { reels: 60, posts: 25, stories: 15 },
-    interactionsByType: { reels: 85, posts: 5, stories: 10 },
-    totalLikes: 290, totalComments: 6, totalSaves: 10, totalShares: 32,
-    storyViews: 2487, storyCompletion: 89, storyCount: 24,
+    period: "Apr 18 – May 17, 2026",
+    followers: 3133, followerGrowth: 4, follows: 9, unfollows: 5,
+    totalViews: 9000, totalReach: 5500, reachChange: 0, totalInteractions: 500,
+    viewSplit: { followers: 35, nonFollowers: 65 },
+    interactionSplit: { followers: 30, nonFollowers: 70 },
+    viewsByType: { reels: 65, posts: 20, stories: 15 },
+    interactionsByType: { reels: 90, posts: 4, stories: 6 },
+    totalLikes: 350, totalComments: 8, totalSaves: 10, totalShares: 25,
+    storyViews: 2400, storyCompletion: 89, storyCount: 24,
     dailyViews: [
-      { date: "Apr 7", views: 442 },{ date: "Apr 11", views: 1278 },
-      { date: "Apr 17", views: 601 },{ date: "Apr 18", views: 1784 },
       { date: "Apr 21", views: 1835 },{ date: "Apr 23", views: 1800 },
-      { date: "Apr 27", views: 721 },{ date: "Apr 30", views: 1984 },
-      { date: "May 1", views: 436 },{ date: "May 2", views: 170 },
+      { date: "Apr 30", views: 1984 },{ date: "May 2", views: 170 },
+      { date: "May 13", views: 1708 },{ date: "May 16", views: 395 },
     ],
     posts: [
-      { id: 1, title: "Dr. Tamay – Every Generation", type: "Reel", date: "Apr 30", views: 1984, reach: 1081, likes: 44, comments: 0, saves: 1, shares: 3, er: 4.5, skipRate: 69.7, avgWatch: "9s", igUrl: "", isTop: true },
+      { id: 1, title: "Dr. Tamay – Every Generation", type: "Reel", date: "Apr 30", views: 1984, reach: 1081, likes: 44, comments: 0, saves: 1, shares: 3, er: 4.5, skipRate: 69.7, avgWatch: "9s", igUrl: "", isTop: false },
       { id: 2, title: "More Than a Job – Podcast", type: "Reel", date: "Apr 21", views: 1835, reach: 1026, likes: 46, comments: 0, saves: 2, shares: 7, er: 5.4, skipRate: 62.9, avgWatch: "14s", igUrl: "", isTop: false, isCollab: true },
       { id: 3, title: "Building Patient Trust", type: "Reel", date: "Apr 23", views: 1800, reach: 1136, likes: 66, comments: 3, saves: 1, shares: 1, er: 6.3, skipRate: 70.1, avgWatch: "13s", igUrl: "", isTop: false, isCollab: true },
-      { id: 4, title: "Not Every Treatment Is Right", type: "Reel", date: "Apr 18", views: 1784, reach: 1061, likes: 67, comments: 2, saves: 4, shares: 8, er: 7.6, skipRate: 54, avgWatch: "", igUrl: "", isTop: false },
-      { id: 5, title: "Treatment vs. Care", type: "Reel", date: "Apr 11", views: 1278, reach: 923, likes: 25, comments: 0, saves: 1, shares: 5, er: 3.4, skipRate: 0, avgWatch: "", igUrl: "", isTop: false },
-      { id: 6, title: "Gum Recession Explained", type: "Carousel", date: "Apr 27", views: 721, reach: 217, likes: 12, comments: 0, saves: 0, shares: 1, er: 6.0, skipRate: 0, avgWatch: "", igUrl: "", isTop: false },
-      { id: 7, title: "The Difference You Can Feel", type: "Reel", date: "Apr 17", views: 601, reach: 392, likes: 13, comments: 0, saves: 0, shares: 1, er: 3.6, skipRate: 76, avgWatch: "", igUrl: "", isTop: false },
-      { id: 8, title: "Dental Implants – Right for You?", type: "Carousel", date: "May 1", views: 436, reach: 134, likes: 7, comments: 0, saves: 0, shares: 1, er: 6.0, skipRate: 0, avgWatch: "", igUrl: "", isTop: false },
-      { id: 9, title: "Every Step Matters", type: "Reel", date: "May 2", views: 170, reach: 78, likes: 3, comments: 0, saves: 0, shares: 0, er: 4.2, skipRate: 67.4, avgWatch: "6s", igUrl: "", isTop: false },
+      { id: 4, title: "The Power of Identity", type: "Reel", date: "May 13", views: 1708, reach: 936, likes: 93, comments: 1, saves: 3, shares: 4, er: 11.0, skipRate: 51.9, avgWatch: "12s", igUrl: "", isTop: true },
+      { id: 5, title: "Not Every Treatment Is Right", type: "Reel", date: "Apr 18", views: 1784, reach: 1061, likes: 67, comments: 2, saves: 4, shares: 8, er: 7.6, skipRate: 54, avgWatch: "", igUrl: "", isTop: false },
+      { id: 6, title: "Trends Fade, Identity Persists", type: "Reel", date: "May 16", views: 395, reach: 237, likes: 5, comments: 0, saves: 0, shares: 1, er: 2.1, skipRate: 73.8, avgWatch: "4s", igUrl: "", isTop: false },
+      { id: 7, title: "Wine Stains on Teeth", type: "Carousel", date: "May 14", views: 195, reach: 65, likes: 2, comments: 0, saves: 0, shares: 0, er: 3.1, skipRate: 0, avgWatch: "", igUrl: "", isTop: false },
     ],
   };
   const socialData = timeRange === "7d" ? socialData7d : socialData30d;
@@ -386,15 +432,15 @@ export default function Dashboard() {
               <div className="exec-cols">
                 <div>
                   <div className="exec-col-title">Discovery</div>
-                  <div className="exec-col-body">{d.viewerSplit.nonFollowers}% of views from non-followers. Reach: {socialData.totalReach} accounts. Dr. Tamay Reel leads with 1,984 views (69.7% skip, 9s avg watch). Podcast-style interview format confirmed as top performer.</div>
+                  <div className="exec-col-body">{d.viewerSplit.nonFollowers}% of views from non-followers. Reach: {socialData.totalReach} accounts (+14.9%). The Power of Identity Reel (1,708 views, 51.9% skip) is the best-performing Reel ever — 91.7% non-follower, 12s avg watch on 28s Reel.</div>
                 </div>
                 <div>
                   <div className="exec-col-title">Engagement</div>
-                  <div className="exec-col-body">{d.kpi.engagementRate.value}% ER with {d.kpi.engagements.value} interactions. Carousels (Gum Recession 6.0%, Implants 6.0%) outperform Reels on ER. Non-follower interactions nearly even at {socialData.interactionSplit.nonFollowers}%.</div>
+                  <div className="exec-col-body">{d.kpi.engagementRate.value}% ER with {d.kpi.engagements.value} interactions. 81.6% from non-followers — highest ever. Power of Identity: 11% ER, 93 likes, 3 saves. Follower growth +4 net (9 follows, 5 unfollows).</div>
                 </div>
                 <div>
                   <div className="exec-col-title">Content</div>
-                  <div className="exec-col-body">Content mix diversified: Reels {socialData.viewsByType.reels}%, Posts {socialData.viewsByType.posts}%, Stories {socialData.viewsByType.stories}%. 3,140 followers (+2 net). {socialData.storyCount} Stories with {socialData.storyCompletion}% completion.</div>
+                  <div className="exec-col-body">Reels drive {socialData.viewsByType.reels}% of views and 93.9% of interactions. Power of Identity skip rate (51.9%) beats typical by 13 points. 3,133 followers. {socialData.storyCount} Stories with {socialData.storyCompletion}% completion.</div>
                 </div>
               </div>
             </div>
@@ -525,7 +571,7 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="card">
-              <InsightCard title={"Link Attribution · " + linkData.period} body={timeRange === "7d" ? "39 clicks in 7 days. Homepage leads (20). NYC at 8 city clicks. Desktop-heavy (Mac OS X 15 + Windows 10). Booking pages: Midtown 5, UES 3." : "440 human clicks over 30 days (+560% vs prior 30d). Homepage 56, Midtown 12, UES 9. US dominates at 327. Significant bot traffic filtered from raw 705 total."} severity="info" />
+              <InsightCard title={"Link Attribution · " + linkData.period} body={timeRange === "7d" ? "195 human clicks (562 total, bots filtered). May 17 spike of 173 clicks — likely campaign or shared link. Homepage leads at 14 organic clicks. UES booking: 2 clicks. US dominates at 178." : "733 human clicks over 30 days. General /* link dominates at 655 — most traffic is untracked. Homepage 56, UES 4, Midtown 2. US 441, UK 106, Netherlands 65."} severity="info" />
             </div>
           </>
         )}
@@ -668,7 +714,7 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="card">
-              <InsightCard title="Website + Search Intelligence" body="463 sessions (7-day). Google organic leads at 64.6%. Perfect 50/50 desktop/mobile split. Home (183), Failed Gum Graft (99), Dry Socket (55). Search (3-month): 2,666 clicks from 185K impressions. Dry Socket article is the SEO powerhouse at 738 clicks. Branded queries convert at 22-31% CTR. Educational content = 73% of all search clicks." severity="info" />
+              <InsightCard title={"Website + Search · " + (timeRange === "7d" ? "7-day" : "30-day")} body={timeRange === "7d" ? "439 sessions. Google leads at 53.5% (235), Direct 38.3% (168). Desktop 58.6%. Home (222), Failed Gum Graft (76), Dry Socket (42). Contact Us surged to 26 views (was 12). Search (30d): 765 clicks from 59K impressions. Dry Socket #1 at 212 clicks. Branded queries at 17-36% CTR." : "1,852 sessions over 30 days. Google 60.1% (1,113), Direct 31.8% (590). Desktop 52.4%. Home (906), Gum Graft (354), Dry Socket (233), Doctors (107), Contact Us (95). SEO content drives 62% of all search traffic."} severity="info" />
             </div>
           </>
         )}
@@ -863,8 +909,8 @@ export default function Dashboard() {
             </div>
 
             <div className="card">
-              <InsightCard title={"Social Intelligence · " + socialData.period} body={timeRange === "7d" ? "5,219 views reaching 1,408 accounts (-10.8%). 53.6% non-follower views. Dr. Tamay Reel (1,984 views) is the standout — podcast/interview format continues to outperform. Carousels strong at 6% ER. 8 Stories with 90% completion. Reels 52.9% of views, Posts 33.6% — most balanced mix yet." : "11,259 views across 12 posts over 30 days reaching 7,305 accounts. Avg Reel ER: 4.9%, avg skip rate: 68.2%. Top performer: Not Every Treatment (7.6% ER, 54% skip). 24 Stories, 2,487 views, 89% completion. Educational authority content remains the clear winner."} severity="info" />
-              <InsightCard title="Key Insight" body="The podcast/interview Reel format is now proven across multiple episodes and doctors. Dr. Tamay (1,984 views), Building Trust (1,800), More Than a Job (1,835), Not Every Treatment (1,784) — four consecutive 1,700+ view Reels. The system works. Key gap: Explore traffic at just 1.5% — content hooks need strengthening to unlock algorithmic scaling." severity="success" />
+              <InsightCard title={"Social Intelligence · " + socialData.period} body={timeRange === "7d" ? "3,759 views reaching 1,430 accounts (+14.9%). 67.6% non-follower views, 81.6% non-follower interactions — strongest discovery ever. Power of Identity Reel: 1,708 views, 51.9% skip (best ever), 12s avg watch, 11% ER, 93 likes, 3 saves. Reels drive 69.4% of views and 93.9% of interactions." : "~9,000 views over 30 days across multiple content formats. Five Reels exceeded 1,700 views. Educational authority content and identity-driven messaging are the top performers. Average Reel skip rate improving from 68% to 52-54% on best content."} severity="info" />
+              <InsightCard title="Key Insight" body="The Power of Identity Reel (51.9% skip, 11% ER, 12s avg watch) represents a new peak for EEC. Five consecutive Reels have now exceeded 1,700 views. The formula has evolved from podcast-style interviews to identity-driven brand storytelling. Follower growth improved to +4 net (best in recent weeks). Key gap: Explore traffic still under 3% — scaling requires stronger hooks in first 2 seconds." severity="success" />
             </div>
           </>
         )}
@@ -963,7 +1009,7 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="card">
-              <InsightCard title="Podcast Intelligence" body="4,614 all-time downloads across 47 episodes. 18 downloads last 7 days, 214 last 30 days. Latest: Why You Cannot Rush Greatness (May 4) — 4 early downloads. Web Browser leads apps at 47% (last 5 episodes) — website embeds driving discovery. Apple Podcasts 31%, Spotify 13%. NYC metro: 29 + 14 = 43 downloads. Germany #2 at 23." severity="success" />
+              <InsightCard title="Podcast Intelligence" body="4,641 all-time downloads across 47 episodes. 4 downloads last 7 days, 56 last 30 days — slower period between episodes. Latest: Rush Greatness (May 4) — 21 first-week downloads. Web Browser leads at 45%, Apple Podcasts 33%, Spotify 12%. NYC metro: 30 + 12 + 5 = 47 downloads. Next milestone: 5,000 downloads (needs 359 more)." severity="success" />
             </div>
           </>
         )}
