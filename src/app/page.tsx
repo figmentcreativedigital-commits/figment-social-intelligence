@@ -13,9 +13,9 @@ const FALLBACK_DATA = {
     watchTime: { value: "3h 43m", label: "Watch Time" },
   },
   posts: [
-    { id: 1, title: "The Power of Identity", type: "Reel", views: 1708, reach: 936, likes: 93, comments: 1, saves: 3, shares: 4, isTop: true, igPostUrl: "" },
-    { id: 2, title: "Trends Fade, Identity Persists", type: "Reel", views: 395, reach: 237, likes: 5, comments: 0, saves: 0, shares: 1, isTop: false, igPostUrl: "" },
-    { id: 3, title: "Wine Stains on Teeth", type: "Carousel", views: 195, reach: 65, likes: 2, comments: 0, saves: 0, shares: 0, isTop: false, igPostUrl: "" },
+    { id: 1, title: "The Power of Identity", type: "Reel", views: 1708, reach: 936, likes: 93, comments: 1, saves: 3, shares: 4, isTop: true, igPostUrl: "https://www.instagram.com/p/DYSOcwGhzJn/" },
+    { id: 2, title: "Trends Fade, Identity Persists", type: "Reel", views: 395, reach: 237, likes: 5, comments: 0, saves: 0, shares: 1, isTop: false, igPostUrl: "https://www.instagram.com/p/DYZ85IxBmlp/" },
+    { id: 3, title: "Wine Stains on Teeth", type: "Carousel", views: 195, reach: 65, likes: 2, comments: 0, saves: 0, shares: 0, isTop: false, igPostUrl: "https://www.instagram.com/p/DYVHzVhGWTi/" },
   ] as any[],
   contentMix: { posts: 18, reels: 69, stories: 13 },
   audience: {
@@ -300,9 +300,9 @@ export default function Dashboard() {
       { date: "May 17", views: 200 },
     ],
     posts: [
-      { id: 1, title: "The Power of Identity", type: "Reel", date: "May 13", views: 1708, reach: 936, likes: 93, comments: 1, saves: 3, shares: 4, er: 11.0, skipRate: 51.9, avgWatch: "12s", igUrl: "", isTop: true },
-      { id: 2, title: "Trends Fade, Identity Persists", type: "Reel", date: "May 16", views: 395, reach: 237, likes: 5, comments: 0, saves: 0, shares: 1, er: 2.1, skipRate: 73.8, avgWatch: "4s", igUrl: "", isTop: false },
-      { id: 3, title: "Wine Stains on Teeth", type: "Carousel", date: "May 14", views: 195, reach: 65, likes: 2, comments: 0, saves: 0, shares: 0, er: 3.1, skipRate: 0, avgWatch: "", igUrl: "", isTop: false },
+      { id: 1, title: "The Power of Identity", type: "Reel", date: "May 13", views: 1708, reach: 936, likes: 93, comments: 1, saves: 3, shares: 4, er: 11.0, skipRate: 51.9, avgWatch: "12s", igUrl: "https://www.instagram.com/p/DYSOcwGhzJn/", isTop: true },
+      { id: 2, title: "Trends Fade, Identity Persists", type: "Reel", date: "May 16", views: 395, reach: 237, likes: 5, comments: 0, saves: 0, shares: 1, er: 2.1, skipRate: 73.8, avgWatch: "4s", igUrl: "https://www.instagram.com/p/DYZ85IxBmlp/", isTop: false },
+      { id: 3, title: "Wine Stains on Teeth", type: "Carousel", date: "May 14", views: 195, reach: 65, likes: 2, comments: 0, saves: 0, shares: 0, er: 3.1, skipRate: 0, avgWatch: "", igUrl: "https://www.instagram.com/p/DYVHzVhGWTi/", isTop: false },
     ],
   };
   const socialData30d = {
@@ -324,10 +324,10 @@ export default function Dashboard() {
       { id: 1, title: "Dr. Tamay – Every Generation", type: "Reel", date: "Apr 30", views: 1984, reach: 1081, likes: 44, comments: 0, saves: 1, shares: 3, er: 4.5, skipRate: 69.7, avgWatch: "9s", igUrl: "", isTop: false },
       { id: 2, title: "More Than a Job – Podcast", type: "Reel", date: "Apr 21", views: 1835, reach: 1026, likes: 46, comments: 0, saves: 2, shares: 7, er: 5.4, skipRate: 62.9, avgWatch: "14s", igUrl: "", isTop: false, isCollab: true },
       { id: 3, title: "Building Patient Trust", type: "Reel", date: "Apr 23", views: 1800, reach: 1136, likes: 66, comments: 3, saves: 1, shares: 1, er: 6.3, skipRate: 70.1, avgWatch: "13s", igUrl: "", isTop: false, isCollab: true },
-      { id: 4, title: "The Power of Identity", type: "Reel", date: "May 13", views: 1708, reach: 936, likes: 93, comments: 1, saves: 3, shares: 4, er: 11.0, skipRate: 51.9, avgWatch: "12s", igUrl: "", isTop: true },
+      { id: 4, title: "The Power of Identity", type: "Reel", date: "May 13", views: 1708, reach: 936, likes: 93, comments: 1, saves: 3, shares: 4, er: 11.0, skipRate: 51.9, avgWatch: "12s", igUrl: "https://www.instagram.com/p/DYSOcwGhzJn/", isTop: true },
       { id: 5, title: "Not Every Treatment Is Right", type: "Reel", date: "Apr 18", views: 1784, reach: 1061, likes: 67, comments: 2, saves: 4, shares: 8, er: 7.6, skipRate: 54, avgWatch: "", igUrl: "", isTop: false },
-      { id: 6, title: "Trends Fade, Identity Persists", type: "Reel", date: "May 16", views: 395, reach: 237, likes: 5, comments: 0, saves: 0, shares: 1, er: 2.1, skipRate: 73.8, avgWatch: "4s", igUrl: "", isTop: false },
-      { id: 7, title: "Wine Stains on Teeth", type: "Carousel", date: "May 14", views: 195, reach: 65, likes: 2, comments: 0, saves: 0, shares: 0, er: 3.1, skipRate: 0, avgWatch: "", igUrl: "", isTop: false },
+      { id: 6, title: "Trends Fade, Identity Persists", type: "Reel", date: "May 16", views: 395, reach: 237, likes: 5, comments: 0, saves: 0, shares: 1, er: 2.1, skipRate: 73.8, avgWatch: "4s", igUrl: "https://www.instagram.com/p/DYZ85IxBmlp/", isTop: false },
+      { id: 7, title: "Wine Stains on Teeth", type: "Carousel", date: "May 14", views: 195, reach: 65, likes: 2, comments: 0, saves: 0, shares: 0, er: 3.1, skipRate: 0, avgWatch: "", igUrl: "https://www.instagram.com/p/DYVHzVhGWTi/", isTop: false },
     ],
   };
   const socialData = timeRange === "7d" ? socialData7d : socialData30d;
