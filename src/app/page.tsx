@@ -173,16 +173,16 @@ export default function Dashboard() {
   const isIgEmbed = (url: string) => /instagram\.com\/(p|reel)\//i.test(url);
 
   const linkData7d = {
-    period: "May 17 – May 24, 2026", totalClicks: 42,
-    topLinks: [{ path: "General /*", clicks: 37 }, { path: "Homepage", clicks: 4 }, { path: "DDS-PC UES", clicks: 1 }, { path: "DDS-PC Midtown", clicks: 0 }],
+    period: "May 17 – May 24, 2026", totalClicks: 5,
+    topLinks: [{ path: "Homepage", clicks: 4 }, { path: "DDS-PC UES", clicks: 1 }, { path: "DDS-PC Midtown", clicks: 0 }],
     trafficSources: [{ source: "Direct / Untagged", clicks: 28 }, { source: "Tagged (UTM)", clicks: 14 }],
     topCountries: [{ country: "United States", clicks: 30 }, { country: "Canada", clicks: 4 }, { country: "Other", clicks: 8 }],
     topCities: [{ city: "New York City", clicks: 8 }, { city: "Dallas", clicks: 4 }, { city: "Toronto", clicks: 3 }, { city: "Brooklyn", clicks: 2 }],
     devices: [{ os: "Windows", clicks: 18 }, { os: "Mac OS X", clicks: 16 }, { os: "iOS", clicks: 5 }, { os: "Android", clicks: 3 }],
   };
   const linkData30d = {
-    period: "Apr 27 – May 27, 2026", totalClicks: 771,
-    topLinks: [{ path: "General /*", clicks: 674 }, { path: "Homepage", clicks: 71 }, { path: "DDS-PC UES", clicks: 12 }, { path: "DDS-PC Midtown", clicks: 10 }, { path: "YouTube", clicks: 2 }],
+    period: "Apr 27 – May 27, 2026", totalClicks: 95,
+    topLinks: [{ path: "Homepage", clicks: 71 }, { path: "DDS-PC UES", clicks: 12 }, { path: "DDS-PC Midtown", clicks: 10 }, { path: "YouTube", clicks: 2 }],
     trafficSources: [{ source: "Direct / Untagged", clicks: 519 }, { source: "Tagged (UTM)", clicks: 252 }],
     topCountries: [{ country: "United States", clicks: 224 }, { country: "Canada", clicks: 7 }, { country: "Russia", clicks: 6 }, { country: "Spain", clicks: 4 }, { country: "Belgium", clicks: 3 }],
     topCities: [{ city: "Dallas", clicks: 10 }, { city: "New York City", clicks: 8 }, { city: "Toronto", clicks: 7 }, { city: "Fort Lee", clicks: 5 }, { city: "Columbus", clicks: 4 }, { city: "Brooklyn", clicks: 4 }],
@@ -617,7 +617,7 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="card">
-              <InsightCard title={"Link Attribution · " + linkData.period} body={timeRange === "7d" ? "~42 human clicks over 7 days (derived from daily chart, bot spike of 289 on May 23 excluded). Most clicks land on the generic /* destination — homepage drew ~4, DDS-PC UES ~1. US still dominates. The May 21 carousel post day generated 19 same-day link clicks before tapering." : "771 human clicks from 1,395 total over 30 days (44.7% bot ratio — May 16 and May 23 carried major bot crawls). Generic /* destination: 674 clicks. Homepage 71. DDS-PC UES: 12, DDS-PC Midtown: 10 — booking links remain underutilized given total volume. US 224 clicks, Dallas surprisingly leads cities at 10."} severity="info" />
+              <InsightCard title={"Link Attribution · " + linkData.period} body={timeRange === "7d" ? "5 attributed human clicks over 7 days across named destinations. Homepage drew 4, DDS-PC UES 1. Booking links remain heavily underutilized given the volume of upstream traffic — the gap between content reach and click-through is the conversion lever to focus on." : "95 attributed human clicks across named destinations over 30 days. Homepage 71, DDS-PC UES 12, DDS-PC Midtown 10, YouTube 2. Booking links remain underutilized given total upstream volume. US 224 clicks; Dallas leads cities at 10. Catch-all/untagged traffic excluded from this view to keep the picture focused on named, actionable destinations."} severity="info" />
             </div>
           </>
         )}
